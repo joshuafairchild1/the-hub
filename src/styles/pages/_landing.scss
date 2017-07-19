@@ -1,11 +1,9 @@
 @import "./vendors/neat/neat";
 
-// Grid size
-$neat-grid: (
-  columns: 12,
-  gutter: 20px,
-);
-
 .test-1 {
   @include grid-column(3);
+}
+
+.test-2 {
+  @include grid-column(9);
 }

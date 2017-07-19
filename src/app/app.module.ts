@@ -16,15 +16,25 @@ export const firebaseConfig = {
 
 import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
+<<<<<<< HEAD
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+=======
+import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+>>>>>>> master
 
 @NgModule({
   declarations: [
     AppComponent,
     TestingComponent,
+<<<<<<< HEAD
     LandingPageComponent,
     NavbarComponent
+=======
+    ChatRoomComponent,
+    UserSearchComponent
+>>>>>>> master
   ],
   imports: [
     BrowserModule,

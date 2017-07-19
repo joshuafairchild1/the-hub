@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TestingComponent } from './testing/testing.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { AboutComponent } from './about/about.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 const appRoutes: Routes = [
   {
@@ -14,6 +16,14 @@ const appRoutes: Routes = [
   {
     path: '',
     component: LandingPageComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'chat-room',
+    component: ChatRoomComponent
   }
 ];
 

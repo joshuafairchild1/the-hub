@@ -9,12 +9,20 @@ import { UserLookupService } from './../github-service/user-lookup.service';
 })
 export class TestingComponent implements OnInit {
 
+  // searchedUser = null;
+
   constructor(
     private userSearch: UserLookupService
   ) { }
 
   ngOnInit() {
 
+  }
+
+  lookupUser(username: string): void {
+    // this.searchedUser = this.userSearch.getUserDetails(username);
+
+    this.userSearch.getUserDetails(username).subscribe(data => console.log(data.json()));
   }
 
 }

@@ -43,3 +43,6 @@ Thumbs.db
 
 # Firebase
 /src/app/api-keys.ts
+
+# Neat grid
+/neat

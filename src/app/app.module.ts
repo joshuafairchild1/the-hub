@@ -16,11 +16,13 @@ export const firebaseConfig = {
 
 import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestingComponent
+    TestingComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

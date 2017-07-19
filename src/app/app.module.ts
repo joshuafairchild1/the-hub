@@ -16,11 +16,13 @@ export const firebaseConfig = {
 
 import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestingComponent
+    TestingComponent,
+    ChatRoomComponent
   ],
   imports: [
     BrowserModule,

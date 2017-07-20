@@ -1,0 +1,84 @@
+{
+  "chatrooms": {
+    "room1": {
+      "name": "Javascript Portland",
+      "messages": {
+        "message1": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "joshuaFairchild",
+          "message": "Hello, world!"
+        },
+        "message2": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "roseSponseller",
+          "message": "Hello, Joshua!"
+        },
+        "message3": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "joshuaFairchild",
+          "message": "Goodbye, world!"
+        }
+      }
+    },
+    "room2": {
+      "name": "C# Portland",
+      "messages": {
+        "message1": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "joshuaFairchild",
+          "message": "Hello, world!"
+        },
+        "message2": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "roseSponseller",
+          "message": "Hello, Joshua!"
+        },
+        "message3": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "joshuaFairchild",
+          "message": "Goodbye, world!"
+        },
+        "message4": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "roseSponseller",
+          "message": "Goodbye, world!"
+        }
+      }
+    },
+    "room3": {
+      "name": "CSS Portland",
+      "messages": {
+        "message1": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "marilynCarlin",
+          "message": "Hello, world!"
+        },
+        "message2": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "ariannaChau",
+          "message": "Hello, Marilyn!"
+        }
+      }
+    },
+    "room4": {
+      "name": "This is Sparta",
+      "messages": {
+        "message1": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "paris",
+          "message": "Hello, Helen!"
+        },
+        "message2": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "helenOfTroy",
+          "message": "Hello, Paris!"
+        },
+        "message3": {
+          "timestamp": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+          "userName": "paris",
+          "message": "Troy is very nice this time of year--why don't you come visit!"
+        }
+      }
+    }
+  }
+}

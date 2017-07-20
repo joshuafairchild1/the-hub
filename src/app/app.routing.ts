@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TestingComponent } from './testing/testing.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { RepoSearchComponent } from './repo-search/repo-search.component';
 
 const appRoutes: Routes = [
   {
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
   {
     path: '',
     component: LandingPageComponent
+  },
+  {
+    path: 'repo-search',
+    component: RepoSearchComponent
   }
 ];
 

@@ -19,6 +19,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { RepoSearchComponent } from './repo-search/repo-search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
     LandingPageComponent,
     NavbarComponent,
     ChatRoomComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    RepoSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,9 @@ export class RepoLookupService {
   ) { }
 
   getRepoDetails(username: string, repoName: string): Observable<any> {
-    const url = `${this.repoLookupEndpoint}${username}/${repoName}`;
-
-    return this.http.get(url);
+    if (username && repoName) {
+      const url = `${this.repoLookupEndpoint}${username}/${repoName}`;
+      return this.http.get(url);
+    }
   }
 }

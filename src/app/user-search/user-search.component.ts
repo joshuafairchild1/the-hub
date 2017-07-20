@@ -25,17 +25,17 @@ export class UserSearchComponent implements OnInit {
       this.searchedUser = new UserData(
         body.login,
         body.name,
-        body.url,
+        body.html_url,
         body.avatar_url,
         body.bio,
         body.location,
         body.created_at,
         body.updated_at,
         body.public_repos,
-        [],
+        [], //this needs to be an array of repositories
         body.followers,
         body.following,
-        []
+        [] //this needs to be an array of repositories
       );
       console.log(this.searchedUser);
     });

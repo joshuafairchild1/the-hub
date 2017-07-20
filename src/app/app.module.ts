@@ -7,6 +7,14 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AppComponent } from './app.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { ChatRoomDetailComponent } from './chat-room-detail/chat-room-detail.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { RepoSearchComponent } from './repo-search/repo-search.component';
+import { AboutComponent } from './about/about.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -15,33 +23,17 @@ export const firebaseConfig = {
   storageBucket: masterFirebaseConfig.storageBucket
 };
 
-import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ChatRoomComponent } from './chat-room/chat-room.component';
-<<<<<<< HEAD
-import { ChatRoomDetailComponent } from './chat-room-detail/chat-room-detail.component';
-=======
-import { UserSearchComponent } from './user-search/user-search.component';
-import { RepoSearchComponent } from './repo-search/repo-search.component';
-import { AboutComponent } from './about/about.component';
->>>>>>> master
-
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    TestingComponent,
     ChatRoomComponent,
-    ChatRoomDetailComponent
-=======
+    ChatRoomDetailComponent,
     LandingPageComponent,
     NavbarComponent,
     ChatRoomComponent,
     UserSearchComponent,
     RepoSearchComponent,
     AboutComponent
->>>>>>> master
   ],
   imports: [
     BrowserModule,

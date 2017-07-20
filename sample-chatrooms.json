@@ -1,6 +1,6 @@
 {
-  "chatrooms": [
-    {
+  "chatrooms": {
+    "room1": {
       "name": "Javascript Portland",
       "messages": {
         "message1": {
@@ -18,10 +18,9 @@
           "userName": "joshuaFairchild",
           "message": "Goodbye, world!"
         }
-      },
-      "id": "1"
+      }
     },
-    {
+    "room2": {
       "name": "C# Portland",
       "messages": {
         "message1": {
@@ -44,10 +43,9 @@
           "userName": "roseSponseller",
           "message": "Goodbye, world!"
         }
-      },
-      "id": "2"
+      }
     },
-    {
+    "room3": {
       "name": "CSS Portland",
       "messages": {
         "message1": {
@@ -60,10 +58,9 @@
           "userName": "ariannaChau",
           "message": "Hello, Marilyn!"
         }
-      },
-      "id": "3"
+      }
     },
-    {
+    "room4": {
       "name": "This is Sparta",
       "messages": {
         "message1": {
@@ -81,8 +78,7 @@
           "userName": "paris",
           "message": "Troy is very nice this time of year--why don't you come visit!"
         }
-      },
-      "id": "4"
+      }
     }
-  ]
+  }
 }

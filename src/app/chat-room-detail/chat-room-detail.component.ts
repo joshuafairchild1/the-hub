@@ -37,6 +37,7 @@ export class ChatRoomDetailComponent implements OnInit {
 
     this.chatRoomToDisplay.subscribe(data => {
       this.chatRoomToDisplayMessages = data;
+      console.log(data);
       this.chatroomService.getChatRoomMessages(this.chatRoomToDisplay.$key).subscribe(data => this.messages = data
       );
     });

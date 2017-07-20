@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RepoSearchComponent } from './repo-search/repo-search.component';
     NavbarComponent,
     ChatRoomComponent,
     UserSearchComponent,
-    RepoSearchComponent
+    RepoSearchComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

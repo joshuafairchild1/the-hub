@@ -12,6 +12,13 @@
   <p>User since: {{searchedUser.userSince | date}}</p>
   <p>Last active: {{searchedUser.lastActive | date}}</p>
   <p>Number of repositories: {{searchedUser.repoCount}}</p>
+  <ul>
+    <li *ngFor='let repo of searchedUser.repos'>
+      <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
+      <p>{{repo.language}} | {{repo.stars}} stars</p>
+      <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
+    </li>
+  </ul>
   <p>Followers: {{searchedUser.followerCount}}</p>
   <p>Following: {{searchedUser.followingCount}}</p>
 </div>

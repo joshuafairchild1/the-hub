@@ -1,4 +1,6 @@
-<ul id="messages"></ul>
+<div *ngFor="let message of messages">
+  <p>{{message.message}}</p>
+</div>
 <form>
   <input id="input" autocomplete="off"><button>Send</button>
 </form>

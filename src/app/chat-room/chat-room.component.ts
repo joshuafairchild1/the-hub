@@ -17,7 +17,6 @@ export class ChatRoomComponent implements OnInit {
 
   chatrooms;
 
-
   ngOnInit() {
     this.chatrooms = this.chatroomService.getChatRooms();
   }
@@ -26,5 +25,9 @@ export class ChatRoomComponent implements OnInit {
     var newChatRoom: Chatroom = new Chatroom(name);
     this.chatroomService.addChatRoom(newChatRoom);
     this.router.navigate(['chatrooms']);
+  }
+
+  goToChatRoom(clickedChatRoom) {
+    this.router.navigate(['chatrooms', clickedChatRoom.$key]);
   }
 }

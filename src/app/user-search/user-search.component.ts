@@ -24,33 +24,6 @@ export class UserSearchComponent implements OnInit {
     this.userSearch.getUserDetails(username).subscribe(data => {
       const user = data.json();
 
-      let repos = [];
-      this.userSearch.call(user.repos_url).subscribe(data => {
-        const repositoriesData = data.json();
-        repositoriesData.forEach(repo => {
-          repos.push(new Repo(repo.name,
-                              repo.html_url,
-                              repo.language,
-                              repo.stargazers_count,
-                              repo.homepage
-                            ));
-        });
-      });
-
-      let starredRepos = [];
-      const url = user.starred_url.split('{')[0];
-      this.userSearch.call(url).subscribe(data => {
-        const starredReposData = data.json();
-        starredReposData.forEach(repo => {
-          starredRepos.push(new Repo(repo.name,
-                              repo.html_url,
-                              repo.language,
-                              repo.stargazers_count,
-                              repo.homepage
-                            ));
-        });
-      });
-
       this.searchedUser = new UserData(
         user.login,
         user.name,
@@ -61,12 +34,36 @@ export class UserSearchComponent implements OnInit {
         user.created_at,
         user.updated_at,
         user.public_repos,
-        repos,
+        [],
         user.followers,
         user.following,
-        starredRepos
+        []
       );
       console.log(user);
+
+      this.userSearch.call(user.repos_url).subscribe(data => {
+        const repositoriesData = data.json();
+        repositoriesData.forEach(repo => {
+          this.searchedUser.repos.push(new Repo(repo.name,
+                              repo.html_url,
+                              repo.language,
+                              repo.stargazers_count,
+                              repo.homepage
+                            ));
+        });
+      });
+
+      const url = user.starred_url.split('{')[0];
+      this.userSearch.call(url).subscribe(data => {
+        const starredReposData = data.json();
+        starredReposData.forEach(repo => {
+          this.searchedUser.starredRepos.push(new Repo( repo.name,
+                                                        repo.html_url,
+                                                        repo.language,
+                                                        repo.stargazers_count,
+                                                        repo.homepage));
+        });
+      });
     });
   }
 }

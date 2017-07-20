@@ -19,4 +19,15 @@
   <p>Number of watchers: {{searchedRepo.watchers}}</p>
   <p>Created at: {{searchedRepo.createdAt | date}}</p>
   <p>Last push: {{searchedRepo.lastUpdatedAt | date}}</p>
+  Last 5 commits:
+  <div *ngFor='let commit of searchedRepo.commits'>
+    <p>Message: {{commit.message}}</p>
+    <p>{{commit.author}} | {{commit.date | date}}</p>
+  </div>
+  Contributors:
+  <div *ngFor='let contributor of searchedRepo.contributors'>
+    <h3><a href="{{contributor.ghUrl}}">{{contributor.username}}</a></h3>
+    <img src="{{contributor.avatarUrl}}"/>
+    <p>Contributions: {{contributor.contributions}}</p>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 // Search form
 .search-wrapper {
+  padding: $nudge 0;
   font-size: 1.2em;
   background-color: thistle;
   border-radius: $radius;
@@ -8,6 +9,9 @@
   margin: 10vh auto;
   width: 50%;
   max-width: 800px;
+  h2 {
+    padding-bottom: $nudge;
+  }
   .user-search {
     display: flex;
     flex-direction: column;

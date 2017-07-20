@@ -1,5 +1,9 @@
 @import "./vendors/neat/neat";
 
+.landing-wrapper {
+  // overflow-x: hidden;
+}
+
 .landing {
   color: red;
   display: flex;
@@ -33,6 +37,57 @@
   flex-direction: column;
   border: 3px solid blue;
   width: 50%;
-  height: 45vh;
+  height: 600px;
   margin: 10vh auto;
+}
+
+// Wavey
+
+.ocean {
+  // overflow: hidden;
+  width: 100%;
+  height: 5%;
+  // display: block;
+  // height: 5%;
+  // width:50%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  // overflow: hidden;
+  background: url(http://tedmcdo.com/labs/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 200vw;
+  // width: 100vw;
+  height: 198px;
+  animation: wave 2s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+// .wave:nth-of-type(2) {
+//   top: -175px;
+//   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+//   opacity: 1;
+// }
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100vw;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
 }

@@ -11,9 +11,16 @@
 
   <!--SEARCHED USER CONTAINS SEARCH RESULTS-->
   <div *ngIf='searchedUser' class="searched-user">
-    <p><strong>Username:</strong> <a href="{{searchedUser.ghLink}}">{{searchedUser.username}}</a></p>
-    <p><strong>Full name:</strong> {{searchedUser.fullName}}</p>
     <img src="{{searchedUser.aviURL}}" class="avatar">
+    <div class="searched-header">
+      <p>
+        <!-- <strong>Full name:</strong> -->
+        {{searchedUser.fullName}}</p>
+        <p>
+          <!-- <strong>Username:</strong> -->
+          <a href="{{searchedUser.ghLink}}">@{{searchedUser.username}}</a></p>
+          <hr>
+    </div>
     <p><strong>Bio:</strong> {{searchedUser.bio}}</p>
     <p><strong>Location:</strong> {{searchedUser.location}}</p>
     <p><strong>User since:</strong> {{searchedUser.userSince | date}}</p>

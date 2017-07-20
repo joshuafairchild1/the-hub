@@ -15,11 +15,17 @@
 // Searched information
 .searched-user {
   background-color: tomato;
+  .searched-header {
+    background-color: mistyrose;
+    text-align: center;
+    padding-bottom: $nudge;
+  }
 }
 
 .avatar {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: $nudge auto;
   border-radius: 50%;
+  max-width: 85%;
 }

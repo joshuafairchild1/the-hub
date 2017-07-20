@@ -1,0 +1,34 @@
+<navbar></navbar>
+
+<div class="">
+  <input #username>
+  <button (click)='lookupUser(username.value)'>Search</button>
+</div>
+
+<div *ngIf='searchedUser'>
+  <p>Username: <a href="{{searchedUser.ghLink}}">{{searchedUser.username}}</a></p>
+  <p>Full name: {{searchedUser.fullName}}</p>
+  <img src="{{searchedUser.aviURL}}">
+  <p>Bio: {{searchedUser.bio}}</p>
+  <p>Location: {{searchedUser.location}}</p>
+  <p>User since: {{searchedUser.userSince | date}}</p>
+  <p>Last active: {{searchedUser.lastActive | date}}</p>
+  <p>Number of repositories: {{searchedUser.repoCount}}</p>
+  <ul>
+    <li *ngFor='let repo of searchedUser.repos'>
+      <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
+      <p>{{repo.language}} | {{repo.stars}} stars</p>
+      <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
+    </li>
+  </ul>
+  <p>Followers: {{searchedUser.followerCount}}</p>
+  <p>Following: {{searchedUser.followingCount}}</p>
+  <p>Starred repos: </p>
+  <ul>
+    <li *ngFor='let repo of searchedUser.starredRepos'>
+      <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
+      <p>{{repo.language}} | {{repo.stars}} stars</p>
+      <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
+    </li>
+  </ul>
+</div>

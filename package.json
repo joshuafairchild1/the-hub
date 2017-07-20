@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^4.3.1",
     "@angular/common": "^4.3.1",
     "@angular/compiler": "^4.3.1",
@@ -23,6 +24,18 @@
     "@angular/router": "^4.3.1",
     "angular2-toaster": "^4.0.1",
     "angularfire2": "^4.0.0-rc0",
+=======
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "angularfire2": "^4.0.0-rc.0",
+    "bourbon-neat": "^1.9.0",
+>>>>>>> master
     "core-js": "^2.4.1",
     "express": "^4.15.3",
     "firebase": "^4.1.3",

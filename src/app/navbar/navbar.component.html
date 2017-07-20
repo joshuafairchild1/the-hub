@@ -1,0 +1,18 @@
+<nav>
+  <div class="left-nav">
+    <ul>
+      <li><a href="">LOGO</a></li>
+    </ul>
+  </div>
+
+  <div class="right-nav">
+    <ul>
+      <li><a routerLink="/user-search">User Search</a></li>
+      <li><a routerLink='/repo-search'>Repo Search</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/chat-room">Chat Room</a></li>
+      <li>Welcome, {{userFullName}}</li>
+      <li (click)='logout()'>Log out</li>
+    </ul>
+  </div>
+</nav>

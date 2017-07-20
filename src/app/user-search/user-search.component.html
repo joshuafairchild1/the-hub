@@ -12,6 +12,7 @@
   <!--SEARCHED USER CONTAINS SEARCH RESULTS-->
   <div *ngIf='searchedUser' class="searched-user">
     <img src="{{searchedUser.aviURL}}" class="avatar">
+
     <div class="searched-header">
       <p>
         <!-- <strong>Full name:</strong> -->
@@ -19,13 +20,20 @@
         <p>
           <!-- <strong>Username:</strong> -->
           <a href="{{searchedUser.ghLink}}">@{{searchedUser.username}}</a></p>
+          <p><em>{{searchedUser.bio}}</em></p>
           <hr>
-    </div>
-    <p><strong>Bio:</strong> {{searchedUser.bio}}</p>
-    <p><strong>Location:</strong> {{searchedUser.location}}</p>
+    </div><!--SEARCHED HEADER ENDS-->
+
+    <div class="searched-secondary">
+      <p><strong><i class="fa fa-map-marker" aria-hidden="true"></i> Location:</strong> {{searchedUser.location}}</p>
+      <p><strong><i class="fa fa-code" aria-hidden="true"></i> Number of repositories:</strong> {{searchedUser.repoCount}}</p>
+    </div><!--SEARCHED SECONDARY ENDS-->
+
+    <div class="searched-secondary">
     <p><strong>User since:</strong> {{searchedUser.userSince | date}}</p>
     <p><strong>Last active:</strong> {{searchedUser.lastActive | date}}</p>
-    <p><strong>Number of repositories:</strong> {{searchedUser.repoCount}}</p>
+    </div><!--SEARCHED SECONDARY ENDS-->
+    
     <ul>
       <li *ngFor='let repo of searchedUser.repos'>
         <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>

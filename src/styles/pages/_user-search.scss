@@ -1,10 +1,13 @@
 // Search form
 .search-wrapper {
+  font-size: 1.2em;
   background-color: thistle;
+  border-radius: $radius;
   display: flex;
   flex-direction: column;
   margin: 10vh auto;
   width: 50%;
+  max-width: 800px;
   .user-search {
     display: flex;
     flex-direction: column;
@@ -20,12 +23,24 @@
     text-align: center;
     padding-bottom: $nudge;
   }
+  .searched-secondary {
+    display: flex;
+    justify-content: space-around;
+  }
+  hr {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
+
+
 
 .avatar {
   display: flex;
   justify-content: center;
   margin: $nudge auto;
   border-radius: 50%;
+  width: 300px;
   max-width: 85%;
+  background-color: $white;
 }

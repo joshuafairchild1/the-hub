@@ -22,7 +22,7 @@ export class RepoLookupService {
     }
   }
 
-  call(url: string): Observable<any> {
+  callWithMaxPages(url: string): Observable<any> {
     const headers = new Headers();
     headers.append(`Authorization`, `token ${oAuthToken}`);
     return this.http.get(`${url}?per_page=100`, {headers: headers});

@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.user ) {
+    if (this.user) {
       this.user.subscribe(data => {
         this.userFullName = data.displayName;
       });

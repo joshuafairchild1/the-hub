@@ -41,7 +41,7 @@ export class UserSearchComponent implements OnInit {
       );
       console.log(user);
 
-      this.userSearch.call(user.repos_url).subscribe(data => {
+      this.userSearch.callWithMaxPages(user.repos_url).subscribe(data => {
         const repositoriesData = data.json();
         repositoriesData.forEach(repo => {
           this.searchedUser.repos.push(new Repo(repo.name,
@@ -54,7 +54,7 @@ export class UserSearchComponent implements OnInit {
       });
 
       const url = user.starred_url.split('{')[0];
-      this.userSearch.call(url).subscribe(data => {
+      this.userSearch.callWithMaxPages(url).subscribe(data => {
         const starredReposData = data.json();
         starredReposData.forEach(repo => {
           this.searchedUser.starredRepos.push(new Repo( repo.name,

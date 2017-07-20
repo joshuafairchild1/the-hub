@@ -47,7 +47,7 @@ export class RepoSearchComponent implements OnInit {
       );
 
       const commmitsUrl = repo.commits_url.split('{')[0];
-      this.repoSearch.call(commmitsUrl).subscribe(data => {
+      this.repoSearch.callWithMaxPages(commmitsUrl).subscribe(data => {
         const commits = data.json();
         this.searchedRepo.commitsNumber = commits.length;
 
@@ -58,7 +58,7 @@ export class RepoSearchComponent implements OnInit {
         }
       });
 
-      this.repoSearch.call(repo.contributors_url).subscribe(data => {
+      this.repoSearch.callWithMaxPages(repo.contributors_url).subscribe(data => {
         const contributors = data.json();
         contributors.forEach(contributor => {
           this.searchedRepo.contributors.push(new Contributor(contributor.login,

@@ -23,11 +23,11 @@ export class ChatRoomService {
     this.chatrooms.push(newChatRoom);
   }
 
-  getChatRoomById(chatroomId: string){
+  getChatRoomById(chatroomId: string) {
     return this.database.object('chatrooms/' + chatroomId);
   }
 
-  deleteChatRoom(localChatRoomToDelete){
+  deleteChatRoom(localChatRoomToDelete) {
     var chatRoomEntryInFirebase = this.getChatRoomById(localChatRoomToDelete.$key);
     chatRoomEntryInFirebase.remove();
   }
@@ -37,12 +37,11 @@ export class ChatRoomService {
     var chatRoomEntryInFirebase = this.getChatRoomById(localChatRoom.$key);
     this.getChatRoomById(localChatRoom.$key).subscribe(data => {
       messages = data.messages.push(messageToAdd);
-    })
+    });
     chatRoomEntryInFirebase.update({messages: messages});
   }
 
-  getMemberDogs(memberId: string) {
-    return this.database.list(`members/${memberId}/dogs`);
+  getChatRoomMessages(chatroomId: string) {
+    return this.database.list(`chatrooms/${chatroomId}/messages`);
   }
-  
 }

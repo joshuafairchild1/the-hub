@@ -1,3 +1,10 @@
-<p>
-  chat-room works!
-</p>
+<h2>Chat Rooms</h2>
+<div *ngFor="let chatroom of chatrooms | async">
+  <h3 (click)="goToChatRoom(chatroom)"><strong>{{chatroom.name}}</strong></h3>
+</div>
+
+<h3>Create New ChatRoom</h3>
+<label>Chat Room Name:</label>
+<br>
+<input #newName>
+<button (click)="submitForm(newName.value); newName.value=''">Add</button>

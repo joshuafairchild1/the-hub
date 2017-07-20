@@ -1,6 +1,6 @@
 export class Message {
   constructor (
-    public timestamp: Date,
+    public timestamp: string,
     public userName: string,
     public message: string,
   ) { }

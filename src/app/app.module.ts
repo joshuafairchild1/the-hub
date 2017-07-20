@@ -15,6 +15,7 @@ import { ChatRoomDetailComponent } from './chat-room-detail/chat-room-detail.com
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
 import { AboutComponent } from './about/about.component';
+import { UserService } from './user.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -44,7 +45,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

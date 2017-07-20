@@ -26,8 +26,8 @@ export class UserSearchComponent implements OnInit {
 
       let repos = [];
       this.userSearch.call(user.repos_url).subscribe(data => {
-        const repositories = data.json();
-        repositories.forEach(repo => {
+        const repositoriesData = data.json();
+        repositoriesData.forEach(repo => {
           repos.push(new Repo(repo.name,
                               repo.html_url,
                               repo.language,
@@ -38,8 +38,17 @@ export class UserSearchComponent implements OnInit {
       });
 
       let starredRepos = [];
-      this.userSearch.call(user.starred_url).subscribe(data => {
-        console.log(data);
+      const url = user.starred_url.split('{')[0];
+      this.userSearch.call(url).subscribe(data => {
+        const starredReposData = data.json();
+        starredReposData.forEach(repo => {
+          starredRepos.push(new Repo(repo.name,
+                              repo.html_url,
+                              repo.language,
+                              repo.stargazers_count,
+                              repo.homepage
+                            ));
+        });
       });
 
       this.searchedUser = new UserData(
@@ -55,7 +64,7 @@ export class UserSearchComponent implements OnInit {
         repos,
         user.followers,
         user.following,
-        [] //this needs to be an array of repositories
+        starredRepos
       );
       console.log(user);
     });

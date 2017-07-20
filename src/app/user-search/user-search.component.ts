@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLookupService } from './../github-service/user-lookup.service';
 import { UserData } from './../user-data.model';
+import { Repo } from './../repo.model';
 
 @Component({
   selector: 'app-user-search',
@@ -21,23 +22,48 @@ export class UserSearchComponent implements OnInit {
 
   lookupUser(username: string): void {
     this.userSearch.getUserDetails(username).subscribe(data => {
-      const body = data.json();
+      const user = data.json();
+
       this.searchedUser = new UserData(
-        body.login,
-        body.name,
-        body.html_url,
-        body.avatar_url,
-        body.bio,
-        body.location,
-        body.created_at,
-        body.updated_at,
-        body.public_repos,
-        [], //this needs to be an array of repositories
-        body.followers,
-        body.following,
-        [] //this needs to be an array of repositories
+        user.login,
+        user.name,
+        user.html_url,
+        user.avatar_url,
+        user.bio,
+        user.location,
+        user.created_at,
+        user.updated_at,
+        user.public_repos,
+        [],
+        user.followers,
+        user.following,
+        []
       );
-      console.log(this.searchedUser);
+      console.log(user);
+
+      this.userSearch.call(user.repos_url).subscribe(data => {
+        const repositoriesData = data.json();
+        repositoriesData.forEach(repo => {
+          this.searchedUser.repos.push(new Repo(repo.name,
+                              repo.html_url,
+                              repo.language,
+                              repo.stargazers_count,
+                              repo.homepage
+                            ));
+        });
+      });
+
+      const url = user.starred_url.split('{')[0];
+      this.userSearch.call(url).subscribe(data => {
+        const starredReposData = data.json();
+        starredReposData.forEach(repo => {
+          this.searchedUser.starredRepos.push(new Repo( repo.name,
+                                                        repo.html_url,
+                                                        repo.language,
+                                                        repo.stargazers_count,
+                                                        repo.homepage));
+        });
+      });
     });
   }
 }

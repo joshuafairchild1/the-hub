@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepoLookupService } from './../github-service/repo-lookup.service';
 import { RepoData } from './../repo-data.model';
+import { Contributor } from './../contributor.model';
 
 @Component({
   selector: 'app-repo-search',
@@ -21,28 +22,51 @@ export class RepoSearchComponent implements OnInit {
 
   lookupRepo(username: string, repo: string): void {
     this.repoSearch.getRepoDetails(username, repo).subscribe(data => {
-      const body = data.json();
-      console.log(body);
+      const repo = data.json();
+      console.log(repo);
+
       this.searchedRepo = new RepoData(
-        body.owner.login,
-        body.owner.html_url,
-        body.owner.avatar_url,
-        body.name,
-        body.html_url,
-        body.clone_url,
-        body.description,
-        body.homepage,
-        body.forks,
-        0, //this needs to be the number of commits
-        [],  //this needs to be the commits themselves
-        body.stargazers_count,
-        body.size,
-        body.watchers,
-        body.language,
-        body.created_at,
-        body.pushed_at,
-        [] //this needs to be an array of contributors
+        repo.owner.login,
+        repo.owner.html_url,
+        repo.owner.avatar_url,
+        repo.name,
+        repo.html_url,
+        repo.clone_url,
+        repo.description,
+        repo.homepage,
+        repo.forks,
+        0,
+        [],
+        repo.stargazers_count,
+        repo.size,
+        repo.watchers,
+        repo.language,
+        repo.created_at,
+        repo.pushed_at,
+        []
       );
+
+      const commmitsUrl = repo.commits_url.split('{')[0];
+      this.repoSearch.call(commmitsUrl).subscribe(data => {
+        const commits = data.json();
+        this.searchedRepo.commitsNumber = commits.length;
+
+        for (let i = 0; i < 6; i++) {
+          this.searchedRepo.commits.push({message: commits[i].commit.message,
+                                          author: commits[i].commit.author.name,
+                                          date: commits[i].commit.author.date});
+        }
+      });
+
+      this.repoSearch.call(repo.contributors_url).subscribe(data => {
+        const contributors = data.json();
+        contributors.forEach(contributor => {
+          this.searchedRepo.contributors.push(new Contributor(contributor.login,
+                                                              contributor.html_url,
+                                                              contributor.avatar_url,
+                                                              contributor.contributions));
+        });
+      });
     });
   }
 

@@ -1,34 +1,40 @@
 <navbar></navbar>
+<!--NAVBAR-->
 
-<div class="">
-  <input #username>
-  <button (click)='lookupUser(username.value)'>Search</button>
-</div>
+<div class="search-wrapper">
+  <!--USER-SEARCH CONTAINS FORM FOR SEARCHING A USER-->
+  <div class="user-search">
+    <h2>Search for a Github account</h2>
+    <input #username>
+    <button (click)='lookupUser(username.value)'>Search</button>
+  </div><!--USER SEARCH CLOSES-->
 
-<div *ngIf='searchedUser'>
-  <p>Username: <a href="{{searchedUser.ghLink}}">{{searchedUser.username}}</a></p>
-  <p>Full name: {{searchedUser.fullName}}</p>
-  <img src="{{searchedUser.aviURL}}">
-  <p>Bio: {{searchedUser.bio}}</p>
-  <p>Location: {{searchedUser.location}}</p>
-  <p>User since: {{searchedUser.userSince | date}}</p>
-  <p>Last active: {{searchedUser.lastActive | date}}</p>
-  <p>Number of repositories: {{searchedUser.repoCount}}</p>
-  <ul>
-    <li *ngFor='let repo of searchedUser.repos'>
-      <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
-      <p>{{repo.language}} | {{repo.stars}} stars</p>
-      <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
-    </li>
-  </ul>
-  <p>Followers: {{searchedUser.followerCount}}</p>
-  <p>Following: {{searchedUser.followingCount}}</p>
-  <p>Starred repos: </p>
-  <ul>
-    <li *ngFor='let repo of searchedUser.starredRepos'>
-      <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
-      <p>{{repo.language}} | {{repo.stars}} stars</p>
-      <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
-    </li>
-  </ul>
-</div>
+  <!--SEARCHED USER CONTAINS SEARCH RESULTS-->
+  <div *ngIf='searchedUser' class="searched-user">
+    <p><strong>Username:</strong> <a href="{{searchedUser.ghLink}}">{{searchedUser.username}}</a></p>
+    <p><strong>Full name:</strong> {{searchedUser.fullName}}</p>
+    <img src="{{searchedUser.aviURL}}" class="avatar">
+    <p><strong>Bio:</strong> {{searchedUser.bio}}</p>
+    <p><strong>Location:</strong> {{searchedUser.location}}</p>
+    <p><strong>User since:</strong> {{searchedUser.userSince | date}}</p>
+    <p><strong>Last active:</strong> {{searchedUser.lastActive | date}}</p>
+    <p><strong>Number of repositories:</strong> {{searchedUser.repoCount}}</p>
+    <ul>
+      <li *ngFor='let repo of searchedUser.repos'>
+        <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
+        <p>{{repo.language}} | {{repo.stars}} stars</p>
+        <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
+      </li>
+    </ul>
+    <p><strong>Followers:</strong> {{searchedUser.followerCount}}</p>
+    <p><strong>Following:</strong> {{searchedUser.followingCount}}</p>
+    <p><strong>Starred repos:</strong> </p>
+    <ul>
+      <li *ngFor='let repo of searchedUser.starredRepos'>
+        <p><a href="{{repo.repoURL}}">{{repo.repoName}}</a></p>
+        <p>{{repo.language}} | {{repo.stars}} stars</p>
+        <p *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></p>
+      </li>
+    </ul>
+  </div><!--SEARCHED USER CLOSES-->
+</div><!--SEARCH WRAPPER CLOSES-->

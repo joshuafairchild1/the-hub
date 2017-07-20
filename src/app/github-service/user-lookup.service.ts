@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { oAuthToken } from './../../api-keys';
+import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/catch';
@@ -16,17 +16,17 @@ export class UserLookupService {
   ) { }
 
   getUserDetails(username: string): Observable<any> {
-    const headers = new Headers();
-    headers.append(`Authorization`, `token ${oAuthToken}`);
+    // const headers = new Headers();
+    // headers.append(`Authorization`, `token ${oAuthToken}`);
     if (username) {
       const url = `${this.userLookupEndpoint}${username}`;
-      return this.http.get(url, {headers: headers});
+      return this.http.get(url);
     }
   }
 
   callWithMaxPages(url: string): Observable<any> {
-    const headers = new Headers();
-    headers.append(`Authorization`, `token ${oAuthToken}`);
-    return this.http.get(`${url}?per_page=100`, {headers: headers});
+    // const headers = new Headers();
+    // headers.append(`Authorization`, `token ${oAuthToken}`);
+    return this.http.get(`${url}?per_page=100`);
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { oAuthToken } from './../../api-keys';
+import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/catch';
@@ -16,6 +16,8 @@ export class RepoLookupService {
   ) { }
 
   getRepoDetails(username: string, repoName: string): Observable<any> {
+    // const headers = new Headers();
+    // headers.append(`Authorization`, `token ${oAuthToken}`);
     if (username && repoName) {
       const url = `${this.repoLookupEndpoint}${username}/${repoName}`;
       return this.http.get(url);
@@ -23,8 +25,8 @@ export class RepoLookupService {
   }
 
   callWithMaxPages(url: string): Observable<any> {
-    const headers = new Headers();
-    headers.append(`Authorization`, `token ${oAuthToken}`);
-    return this.http.get(`${url}?per_page=100`, {headers: headers});
+    // const headers = new Headers();
+    // headers.append(`Authorization`, `token ${oAuthToken}`);
+    return this.http.get(`${url}?per_page=100`);
   }
 }

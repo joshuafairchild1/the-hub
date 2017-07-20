@@ -36,7 +36,7 @@ export class UserSearchComponent implements OnInit {
         user.public_repos,
         [],
         user.followers,
-        user.following,
+        0, // NOTE this needs to be following
         []
       );
       console.log(user);

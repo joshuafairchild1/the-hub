@@ -1,5 +1,5 @@
 <!--LANDING PAGE NAVIGATION-->
-<div class="landing">
+<div class="landing" *ngIf='!loggedIn'>
   <div class="left">
     <p><a routerLink="about">About</a></p>
   </div>
@@ -7,9 +7,14 @@
     <p>The Hub</p>
   </div>
   <div class="right">
-      <p><a href="#" class="sign-in-button">Sign in</a></p>
+      <p><a href="#" class="sign-in-button" (click)='login()'>Sign in</a></p>
   </div>
 </div>
+
+<div *ngIf='loggedIn'>
+  <navbar></navbar>
+</div>
+
 <!--NAVIGATION-->
 <div class="container">
   <h2>The Hub is a lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>

@@ -2,30 +2,32 @@
 
 
 .landing-wrapper {
+  z-index: -10;
   height: 100vh;
-  background-color: #fff;
-  // overflow-x: hidden;
+  background-image: linear-gradient(to top, lighten(#181743, 15%), #181743);
 }
 
 .landing {
-  color: red;
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 50px;
+  color: $white;
   display: flex;
   justify-content: space-between;
-  border: 4px solid tomato;
+  // border: 4px solid tomato;
 
   .left {
     font-size: 30px;
-    border: 3px solid thistle;
+    // border: 3px solid thistle;
   }
 
   .center {
-    font-size: 30px;
+    font-size: 5 0px;
     margin: 0 auto;
-    border: 4px solid green;
   }
   .right {
     font-size: 30px;
-    border: 1px solid orange;
   }
 }
 
@@ -34,25 +36,23 @@
 }
 
 .nav-container {
+  // z-index: 9999 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  border: 3px solid blue;
+  // border: 3px solid blue;
   width: 50%;
   height: 600px;
   margin: 15vh auto;
+  color: darken($white, 15%);
 }
 
 // Wavey
-
 .ocean {
-  // overflow: hidden;
+  z-index: 0;
   width: 100%;
   height: 5%;
-  // display: block;
-  // height: 5%;
-  // width:50%;
   position:absolute;
   bottom:0;
   left:0;
@@ -60,12 +60,10 @@
 }
 
 .wave {
-  // overflow: hidden;
   background: url(/../assets/images/wave.svg) repeat-x;
   position: absolute;
   top: -198px;
   width: 400vw;
-  // width: 100vw;
   height: 198px;
   animation: wave 50s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
@@ -75,6 +73,19 @@
   top: -175px;
   animation: wave 30s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
   opacity: 1;
+}
+
+.placeholder {
+  animation: bounce 800ms infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(0px);
+  }
+  from {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes wave {

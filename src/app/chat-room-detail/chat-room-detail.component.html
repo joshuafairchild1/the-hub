@@ -2,5 +2,5 @@
   <p>{{message.message}}</p>
 </div>
 <form>
-  <input id="input" autocomplete="off"><button>Send</button>
+  <input #input autocomplete="off"><button (click)="beginSending(input.value)">Send</button>
 </form>

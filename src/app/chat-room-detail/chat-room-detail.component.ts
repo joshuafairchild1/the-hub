@@ -22,6 +22,7 @@ export class ChatRoomDetailComponent implements OnInit {
   chatRoomToDisplay;
   chatRoomToDisplayMessages;
   messages: Message [];
+  theChatRoom;
 
   constructor(private route: ActivatedRoute,
     private location: Location,
@@ -37,9 +38,14 @@ export class ChatRoomDetailComponent implements OnInit {
 
     this.chatRoomToDisplay.subscribe(data => {
       this.chatRoomToDisplayMessages = data;
-      console.log(data);
+      // console.log(data);
       this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
     });
+  }
+
+  beginSending(input: string) {
+    var newMessage: Message = new Message('date', 'username', input);
+    this.chatroomService.addMessage(this.chatRoomToDisplayMessages, newMessage);
   }
 
   // popToast() {

@@ -4,6 +4,8 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UserService } from './../user.service';
+import { User } from './../user.model';
+
 
 @Injectable()
 export class AuthenticationService {
@@ -19,12 +21,18 @@ export class AuthenticationService {
   }
 
   login(): void {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
-    this.user.subscribe(data => {
-      console.log(data.displayName);
-    })
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
+      .then(data => {
+        const user = new User(data.user.displayName,
+                              data.additionalUserInfo.username,
+                              data.user.email,
+                              data.user.uid,
+                              data.user.photoURL);
 
-    // this.userService.userExists()
+        this.userService.createUser(user);
+      });
+
+
   }
 
   logout(): void {

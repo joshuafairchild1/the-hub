@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { User } from './user.model';
 
 @Injectable()
 export class UserService {
@@ -8,12 +9,16 @@ export class UserService {
     public database: AngularFireDatabase
   ) { }
 
-  userExists(uid: string) {
-    const user = this.database.list(`users`, {query: {
-                                              orderByChild: 'uid',
-                                              equalTo: uid }});
+  // userExists(uid: string) {
+  //   const user = this.database.list(`users`, {query: {
+  //                                             orderByChild: 'uid',
+  //                                             equalTo: uid }});
+  //
+  //   console.log(user)
+  //
+  // }
 
-    console.log(user)
-
+  createUser(newUser: User): void {
+    this.database.list(`users`).push(newUser);
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../authentication/authentication.service';
+import { User } from './../user.model';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-landing-page',
@@ -26,6 +28,8 @@ export class LandingPageComponent {
 
   login(): void {
     this.authService.login();
+
+    
   }
 
 }

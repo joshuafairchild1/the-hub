@@ -1,0 +1,11 @@
+button {
+  padding: 10px 15px;
+  border-radius: $radius;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  font-size: 1.2em;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: $nudge;
+}

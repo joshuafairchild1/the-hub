@@ -1,0 +1,60 @@
+// Search form
+.search-wrapper {
+  padding: $nudge 0;
+  font-size: 1.2em;
+  background-color: thistle;
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  margin: 10vh auto;
+  width: 50%;
+  max-width: 800px;
+  h2 {
+    padding-bottom: $nudge;
+  }
+  .user-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .avatar {
+    display: flex;
+    justify-content: center;
+    margin: $nudge auto;
+    border-radius: 50%;
+    width: 300px;
+    max-width: 85%;
+    background-color: $white;
+  }
+}
+
+// Searched information
+.searched-user {
+  background-color: tomato;
+  .searched-header {
+    background-color: mistyrose;
+    text-align: center;
+    line-height: 1.5em;
+    padding-bottom: $nudge;
+    margin-bottom: $nudge;
+  }
+  .searched-secondary {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  hr {
+    margin-top: $nudge;
+    width: 75%;
+    margin: 0 auto;
+  }
+  .results-wrapper {
+    padding-top: $nudge;
+    width: 80%;
+    margin: 0 auto;
+    .starred {
+      padding: $nudge 0;
+    }
+  }
+}

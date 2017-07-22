@@ -5,7 +5,7 @@
     <h2>Search for a repository</h2>
     <input #username placeholder="Username">
     <input #repo placeholder="Repo name">
-    <button (click)='lookupRepo(username.value, repo.value)'>Search</button>
+    <button (click)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>Search</button>
   </div>
 
   <div *ngIf='searchedRepo'>
@@ -46,7 +46,8 @@
       <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
        | {{repo.language}} | {{repo.stars}} stars |
       <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
-      <p>{{repo.description}}</p>
+      <p *ngIf='repo.description'>{{repo.description}}</p>
+      <button (click)='lookupRepo(repo.authorName, repo.repoName)'>View Details</button>
     </div>
   </div>
 </div>

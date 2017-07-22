@@ -23,6 +23,8 @@ export class RepoSearchComponent implements OnInit {
   }
 
   lookupRepo(username: string, repo: string): void {
+    this.searchedRepo = null;
+    this.searchedRepoCollection = [];
     if (username && repo) {
       this.repoSearch.getRepoDetails(username, repo).subscribe(data => {
         const repo = data.json();

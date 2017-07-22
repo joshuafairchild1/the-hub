@@ -35,10 +35,10 @@ export class UserSearchComponent implements OnInit {
         user.created_at,
         user.updated_at,
         user.public_repos,
-        [],
+        [], // array of 6 unique repositories
         user.followers,
         user.following,
-        []
+        [] // array of starred repositories
       );
       console.log(user);
 
@@ -60,8 +60,8 @@ export class UserSearchComponent implements OnInit {
         this.searchedUser.repos.push(...this.getUniqueSelection(allRepos, 6));
       });
 
-      const url = user.starred_url.split('{')[0];
-      this.userSearch.callWithMaxPages(url).subscribe(data => {
+      const starsUrl = user.starred_url.split('{')[0];
+      this.userSearch.callWithMaxPages(starsUrl).subscribe(data => {
         const starredReposData = data.json();
         starredReposData.forEach(repo => {
           this.searchedUser.starredRepos.push(new Repo( repo.name,

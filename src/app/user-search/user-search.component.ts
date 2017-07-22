@@ -40,12 +40,12 @@ export class UserSearchComponent implements OnInit {
         user.following,
         [] // array of starred repositories
       );
-      console.log(user);
+      // console.log(user);
 
       this.userSearch.callWithMaxPages(user.repos_url).subscribe(data => {
         const repositoriesData = data.json();
         const allRepos = [];
-        console.log(repositoriesData)
+        // console.log(repositoriesData)
         repositoriesData.forEach(repo => {
           allRepos.push(new Repo( repo.name,
                                   repo.html_url,

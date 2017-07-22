@@ -3,8 +3,8 @@
 <div class="search-wrapper">
   <div class="repo-search">
     <h2>Search for a repository</h2>
-    <input #username placeholder="Username">
-    <input #repo placeholder="Repo name">
+    <input #username placeholder="Username" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
+    <input #repo placeholder="Repo name" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
     <button (click)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>Search</button>
   </div>
 

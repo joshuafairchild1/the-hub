@@ -4,9 +4,9 @@
 <div class="search-wrapper">
   <!--USER-SEARCH CONTAINS FORM FOR SEARCHING A USER-->
   <div class="user-search">
-    <h2>Search for a Github account</h2>
-    <input #username>
-    <button (click)='lookupUser(username.value)'>Search</button>
+    <h2>Search for a GitHub account</h2>
+    <input #username (keyup.enter)='lookupUser(username.value); username.value="";' placeholder="GitHub username">
+    <button (click)='lookupUser(username.value); username.value="";'>Search</button>
   </div><!--USER SEARCH CLOSES-->
 
   <!--SEARCHED USER CONTAINS SEARCH RESULTS-->

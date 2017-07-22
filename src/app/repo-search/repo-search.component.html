@@ -20,24 +20,33 @@
       </div>
       <p>Website: {{searchedRepo.homepage}}</p>
       <p>Written with: {{searchedRepo.language}}</p>
-    <p>Number of forks: {{searchedRepo.forks}}</p>
-    <p>Commits: {{searchedRepo.commitsNumber}}</p>
-    <p>Stars: {{searchedRepo.stars}}</p>
-    <p>File size: {{searchedRepo.fileSize}} kb</p>
-    <p>Number of watchers: {{searchedRepo.watchers}}</p>
-    <p>Created at: {{searchedRepo.createdAt | date}}</p>
-    <p>Last push: {{searchedRepo.lastUpdatedAt | date}}</p>
-    Last 5 commits:
-    <div *ngFor='let commit of searchedRepo.commits'>
-      <p>Message: {{commit.message}}</p>
-      <p>{{commit.author}} | {{commit.date | date}}</p>
-    </div>
-    Contributors:
-    <div *ngFor='let contributor of searchedRepo.contributors'>
-      <h3><a href="{{contributor.ghUrl}}">{{contributor.username}}</a></h3>
-      <img src="{{contributor.avatarUrl}}"/>
-      <p>Contributions: {{contributor.contributions}}</p>
+      <p>Number of forks: {{searchedRepo.forks}}</p>
+      <p>Commits: {{searchedRepo.commitsNumber}}</p>
+      <p>Stars: {{searchedRepo.stars}}</p>
+      <p>File size: {{searchedRepo.fileSize}} kb</p>
+      <p>Number of watchers: {{searchedRepo.watchers}}</p>
+      <p>Created at: {{searchedRepo.createdAt | date}}</p>
+      <p>Last push: {{searchedRepo.lastUpdatedAt | date}}</p>
+      <p>Last 5 commits:</p>
+      <div *ngFor='let commit of searchedRepo.commits'>
+        <p>Message: {{commit.message}}</p>
+        <p>{{commit.author}} | {{commit.date | date}}</p>
+      </div>
+      Contributors:
+      <div *ngFor='let contributor of searchedRepo.contributors'>
+        <h3><a href="{{contributor.ghUrl}}">{{contributor.username}}</a></h3>
+        <img src="{{contributor.avatarUrl}}"/>
+        <p>Contributions: {{contributor.contributions}}</p>
+      </div>
     </div>
   </div>
-</div>
+  <div *ngIf='searchedRepoCollection'>
+    <div *ngFor='let repo of searchedRepoCollection'>
+      <img src="{{repo.authorAviUrl}}" class="avatar">
+      <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
+       | {{repo.language}} | {{repo.stars}} stars |
+      <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+      <p>{{repo.description}}</p>
+    </div>
+  </div>
 </div>

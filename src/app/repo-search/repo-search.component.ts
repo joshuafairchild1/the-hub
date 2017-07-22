@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepoLookupService } from './../github-service/repo-lookup.service';
 import { RepoData } from './../repo-data.model';
+import { Repo } from './../repo.model';
 import { Contributor } from './../contributor.model';
 
 @Component({
@@ -12,6 +13,7 @@ import { Contributor } from './../contributor.model';
 export class RepoSearchComponent implements OnInit {
 
   searchedRepo: RepoData = null;
+  searchedRepoCollection: Repo[] = [];
 
   constructor(
     private repoSearch: RepoLookupService
@@ -70,10 +72,21 @@ export class RepoSearchComponent implements OnInit {
         });
       });
     } else if (!username && repo) {
-      //search for repos by name
       this.repoSearch.getRepos(repo).subscribe(data => {
-        console.log(data.json())
-      })
+        const reposArray = data.json().items;
+        // console.log(reposArray);
+        reposArray.forEach(repo => {
+          this.searchedRepoCollection.push(new Repo( repo.name,
+                                                repo.html_url,
+                                                repo.owner.login,
+                                                repo.owner.html_url,
+                                                repo.owner.avatar_url,
+                                                repo.description,
+                                                repo.language,
+                                                repo.stargazers_count,
+                                                repo.homepage));
+        });
+      });
     }
   }
 

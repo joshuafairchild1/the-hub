@@ -53,7 +53,7 @@
         <ul>
           <li *ngFor='let repo of searchedUser.starredRepos'>
             <img src="{{repo.authorAviUrl}}" class="avatar">
-            <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoURL}}">{{repo.repoName}}</a></strong>
+            <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
              | {{repo.language}} | {{repo.stars}} stars |
             <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
             <p>{{repo.description}}</p>

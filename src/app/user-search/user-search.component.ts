@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserLookupService } from './../github-service/user-lookup.service';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
+// import { getUniqueSelection } from './../../assets/js/get-unique-selection';
 
 @Component({
   selector: 'app-user-search',
@@ -36,21 +37,23 @@ export class UserSearchComponent implements OnInit {
         user.public_repos,
         [],
         user.followers,
-        0, // NOTE this needs to be the number of people user is following
+        user.following,
         []
       );
       console.log(user);
 
       this.userSearch.callWithMaxPages(user.repos_url).subscribe(data => {
         const repositoriesData = data.json();
+        const allRepos = [];
         repositoriesData.forEach(repo => {
-          this.searchedUser.repos.push(new Repo(repo.name,
+          allRepos.push(new Repo(repo.name,
                               repo.html_url,
                               repo.language,
                               repo.stargazers_count,
                               repo.homepage
                             ));
         });
+        this.searchedUser.repos.push(...this.getUniqueSelection(allRepos, 6));
       });
 
       const url = user.starred_url.split('{')[0];
@@ -66,4 +69,16 @@ export class UserSearchComponent implements OnInit {
       });
     });
   }
+
+  getUniqueSelection(arr, selectionCount): any[] {
+    const tmp: any[] = arr.slice(arr);
+    const result = [];
+
+    for (let i: number = 0; i < selectionCount; i++) {
+      const index: number = Math.floor(Math.random() * tmp.length);
+      result.push(tmp.splice(index, 1)[0]);
+    }
+    return result;
+  }
+
 }

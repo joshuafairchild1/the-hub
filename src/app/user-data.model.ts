@@ -11,7 +11,7 @@ export class UserData {
     public repoCount: number,
     public repos: any[],
     public followerCount: number,
-    public followsCount: number,
+    public followingCount: number,
     public starredRepos: any[]
   ) {}
 }

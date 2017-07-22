@@ -12,17 +12,14 @@ export class UserService {
   ) { }
 
   userExists(username: string): Observable<boolean> {
-    const user = this.database.list(`users`, {query: {orderByChild: 'username',
-                                                      equalTo: username}});
-
-    return user.map(data => data[0] ? true : false);
+    return this.getUserByUsername(username).map(data => data[0] ? true : false);
   }
 
   createUser(newUser: User): void {
     this.database.list(`users`).push(newUser);
   }
 
-  getUserAndSubscribe(username: string): any {
-
+  getUserByUsername(username: string): Observable<any> {
+    return this.database.list(`users`, {query: {orderByChild: 'username', equalTo: username}});
   }
 }

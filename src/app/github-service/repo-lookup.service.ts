@@ -9,7 +9,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RepoLookupService {
 
-  private repoLookupEndpoint = 'https://api.github.com/repos/';
+  private repoDetailEndpoint = 'https://api.github.com/repos/';
+  private repoSearchEndpoint = 'https://api.github.com/search/repositories';
 
   constructor(
     private http: Http
@@ -19,7 +20,7 @@ export class RepoLookupService {
     // const headers = new Headers();
     // headers.append(`Authorization`, `token ${oAuthToken}`);
     if (username && repoName) {
-      const url = `${this.repoLookupEndpoint}${username}/${repoName}`;
+      const url = `${this.repoDetailEndpoint}${username}/${repoName}`;
       return this.http.get(url);
     }
   }
@@ -28,5 +29,12 @@ export class RepoLookupService {
     // const headers = new Headers();
     // headers.append(`Authorization`, `token ${oAuthToken}`);
     return this.http.get(`${url}?per_page=100`);
+  }
+
+  getRepos(repoName: string): Observable<any> {
+    if (repoName) {
+      const url = `?q=${repoName}+in:name`;
+      return this.http.get(`${this.repoSearchEndpoint}${url}`);
+    }
   }
 }

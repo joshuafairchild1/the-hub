@@ -22,17 +22,20 @@ export class AuthenticationService {
 
   login(): void {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
-      .then(data => {
-        const user = new User(data.user.displayName,
-                              data.additionalUserInfo.username,
-                              data.user.email,
-                              data.user.uid,
-                              data.user.photoURL);
+      .then(signedInUser => {
+        const username = signedInUser.additionalUserInfo.username;
+        this.userService.userExists(username).subscribe(user => {
+          if (!user) {
+            const newUser = new User( signedInUser.user.displayName,
+                                      username,
+                                      signedInUser.user.email,
+                                      signedInUser.user.uid,
+                                      signedInUser.user.photoURL );
 
-        this.userService.createUser(user);
+            this.userService.createUser(newUser);
+          }
+        });
       });
-
-
   }
 
   logout(): void {

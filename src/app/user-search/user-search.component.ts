@@ -45,13 +45,17 @@ export class UserSearchComponent implements OnInit {
       this.userSearch.callWithMaxPages(user.repos_url).subscribe(data => {
         const repositoriesData = data.json();
         const allRepos = [];
+        console.log(repositoriesData)
         repositoriesData.forEach(repo => {
-          allRepos.push(new Repo(repo.name,
-                              repo.html_url,
-                              repo.language,
-                              repo.stargazers_count,
-                              repo.homepage
-                            ));
+          allRepos.push(new Repo( repo.name,
+                                  repo.html_url,
+                                  repo.owner.login,
+                                  repo.owner.html_url,
+                                  repo.owner.avatar_url,
+                                  repo.description,
+                                  repo.language,
+                                  repo.stargazers_count,
+                                  repo.homepage));
         });
         this.searchedUser.repos.push(...this.getUniqueSelection(allRepos, 6));
       });
@@ -62,6 +66,10 @@ export class UserSearchComponent implements OnInit {
         starredReposData.forEach(repo => {
           this.searchedUser.starredRepos.push(new Repo( repo.name,
                                                         repo.html_url,
+                                                        repo.owner.login,
+                                                        repo.owner.html_url,
+                                                        repo.owner.avatar_url,
+                                                        repo.description,
                                                         repo.language,
                                                         repo.stargazers_count,
                                                         repo.homepage));

@@ -38,7 +38,7 @@
 
     <!--USER REPOS-->
     <div class="results-wrapper">
-      <p><strong>Repositories:</strong> </p>
+      <p><strong>Sample Repositories:</strong> </p>
       <ul>
         <li *ngFor='let repo of searchedUser.repos'>
           <p class="repos"><strong><a href="{{repo.repoURL}}">{{repo.repoName}} </a></strong>
@@ -52,9 +52,11 @@
         <p class="starred"><strong>Starred repositories:</strong> </p>
         <ul>
           <li *ngFor='let repo of searchedUser.starredRepos'>
-            <p><strong><a href="{{repo.repoURL}}">{{repo.repoName}}</a></strong>
+            <img src="{{repo.authorAviUrl}}" class="avatar">
+            <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoURL}}">{{repo.repoName}}</a></strong>
              | {{repo.language}} | {{repo.stars}} stars |
             <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+            <p>{{repo.description}}</p>
           </li>
         </ul>
       </div><!--SEARCHED USER CLOSES-->

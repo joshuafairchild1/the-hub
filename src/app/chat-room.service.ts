@@ -28,7 +28,7 @@ export class ChatRoomService {
   }
 
   deleteChatRoom(localChatRoomToDelete) {
-    var chatRoomEntryInFirebase = this.getChatRoomById(localChatRoomToDelete.$key);
+    const chatRoomEntryInFirebase = this.getChatRoomById(localChatRoomToDelete.$key);
     chatRoomEntryInFirebase.remove();
   }
 
@@ -39,7 +39,7 @@ export class ChatRoomService {
     //   // data.messages.push(messageToAdd);
     // });
     // chatRoomEntryInFirebase.update({messages: messages});
-    //this doesn't work...
+    // this doesn't work...
     this.database.list(`chatrooms/${localChatRoom.$key}/messages`).push(messageToAdd);
   }
 

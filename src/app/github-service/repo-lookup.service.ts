@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { oAuthToken } from './../api-keys';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { RepoData } from './../repo-data.model';
 import { Repo } from './../repo.model';
 import { Contributor } from './../contributor.model';

@@ -44,7 +44,7 @@ export class ChatRoomDetailComponent implements OnInit {
   }
 
   beginSending(input: string) {
-    var newMessage: Message = new Message('date', 'username', input);
+    const newMessage: Message = new Message('date', 'username', input);
     this.chatroomService.addMessage(this.chatRoomToDisplayMessages, newMessage);
   }
 

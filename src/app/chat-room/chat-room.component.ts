@@ -3,6 +3,7 @@ import { ChatRoomService } from '../chat-room.service';
 import { Chatroom } from '../chat-room.model';
 import { Message } from '../message.model';
 import { Router } from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-chat-room',
@@ -12,22 +13,25 @@ import { Router } from '@angular/router';
 })
 export class ChatRoomComponent implements OnInit {
 
-  constructor(private router: Router,
-    private chatroomService: ChatRoomService) { }
+  chatrooms: FirebaseListObservable<any>;
 
-  chatrooms;
+  constructor(
+    private router: Router,
+    private chatroomService: ChatRoomService
+  ) { }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
     this.chatrooms = this.chatroomService.getChatRooms();
   }
 
-  submitForm(name: string) {
-    var newChatRoom: Chatroom = new Chatroom(name);
+  submitForm(name: string): void {
+    const newChatRoom: Chatroom = new Chatroom(name);
     this.chatroomService.addChatRoom(newChatRoom);
     this.router.navigate(['chatrooms']);
   }
 
-  goToChatRoom(clickedChatRoom) {
+  goToChatRoom(clickedChatRoom: any): void {
     this.router.navigate(['chatrooms', clickedChatRoom.$key]);
   }
 }

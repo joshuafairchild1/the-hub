@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { oAuthToken } from './../api-keys';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
 
@@ -93,7 +93,7 @@ export class UserLookupService {
     const tmp: any[] = arr.slice(arr);
     const result = [];
 
-    for (let i: number = 0; i < selectionCount; i++) {
+    for (let i = 0; i < selectionCount; i++) {
       const index: number = Math.floor(Math.random() * tmp.length);
       result.push(tmp.splice(index, 1)[0]);
     }

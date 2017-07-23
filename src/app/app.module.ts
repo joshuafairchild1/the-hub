@@ -16,6 +16,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
 import { AboutComponent } from './about/about.component';
 import { UserService } from './user.service';
+import { AuthGuard } from './route-guards/auth-guard.service';
+import { AuthenticationService } from './authentication/authentication.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -45,7 +47,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

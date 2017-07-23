@@ -6,35 +6,42 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
 import { AboutComponent } from './about/about.component';
+import { AuthGuard } from './route-guards/auth-guard.service';
 
 const appRoutes: Routes = [
-  {
-    path: 'user-search',
-    component: UserSearchComponent
-  },
   {
     path: '',
     component: LandingPageComponent
   },
   {
+    path: 'user-search',
+    component: UserSearchComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'chat-room',
-    component: ChatRoomComponent
+    component: ChatRoomComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'chatrooms/:id',
-    component: ChatRoomDetailComponent
+    component: ChatRoomDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'repo-search',
-    component: RepoSearchComponent
+    component: RepoSearchComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'chat-room',
-    component: ChatRoomComponent
+    component: ChatRoomComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

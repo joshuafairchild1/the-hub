@@ -15,10 +15,9 @@
 
     <div class="searched-header">
       <h2>{{searchedUser.fullName}}</h2>
-        <h3>
-          <a href="{{searchedUser.ghLink}}">@{{searchedUser.username}}</a></h3>
-          <h4><em>{{searchedUser.bio}}</em></h4>
-          <hr>
+      <h3><a href="{{searchedUser.ghLink}}">@{{searchedUser.username}}</a></h3>
+      <h4><em>{{searchedUser.bio}}</em></h4>
+      <hr>
     </div><!--SEARCHED HEADER ENDS-->
 
     <div class="searched-secondary">
@@ -27,8 +26,8 @@
     </div><!--SEARCHED SECONDARY ENDS-->
 
     <div class="searched-secondary">
-    <p><strong>Member since:</strong> {{searchedUser.userSince | date}}</p>
-    <p><strong>Last active:</strong> {{searchedUser.lastActive | date}}</p>
+      <p><strong>Member since:</strong> {{searchedUser.userSince | date}}</p>
+      <p><strong>Last active:</strong> {{searchedUser.lastActive | date}}</p>
     </div><!--SEARCHED SECONDARY ENDS-->
 
     <div class="searched-secondary">
@@ -44,21 +43,22 @@
           <p class="repos"><strong><a href="{{repo.repoURL}}">{{repo.repoName}} </a></strong>
             {{repo.language}} |
             {{repo.stars}} stars
-            <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
-          </li>
-        </ul>
+          <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+          <p *ngIf='repo.description'>{{repo.description}}</p>
+        </li>
+      </ul>
 
         <!--STARRED REPOS-->
-        <p class="starred"><strong>Starred repositories:</strong> </p>
-        <ul>
-          <li *ngFor='let repo of searchedUser.starredRepos'>
-            <img src="{{repo.authorAviUrl}}" class="avatar">
-            <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
-             | {{repo.language}} | {{repo.stars}} stars |
-            <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
-            <p>{{repo.description}}</p>
-          </li>
-        </ul>
-      </div><!--SEARCHED USER CLOSES-->
-    </div><!--RESULTS WRAPPER CLOSES-->
-  </div><!--SEARCH WRAPPER CLOSES-->
+      <p class="starred"><strong>Starred repositories:</strong> </p>
+      <ul>
+        <li *ngFor='let repo of searchedUser.starredRepos'>
+          <img src="{{repo.authorAviUrl}}" class="avatar">
+          <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
+           | {{repo.language}} | {{repo.stars}} stars |
+          <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+          <p *ngIf='repo.description'>{{repo.description}}</p>
+        </li>
+      </ul>
+    </div><!--SEARCHED USER CLOSES-->
+  </div><!--RESULTS WRAPPER CLOSES-->
+</div><!--SEARCH WRAPPER CLOSES-->

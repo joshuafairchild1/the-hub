@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserLookupService } from './../github-service/user-lookup.service';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
-// import { getUniqueSelection } from './../../assets/js/get-unique-selection';
+import { Observable } from 'rxjs/Observable';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-user-search',
@@ -10,7 +11,7 @@ import { Repo } from './../repo.model';
   styleUrls: ['./user-search.component.scss'],
   providers: [UserLookupService]
 })
-export class UserSearchComponent implements OnInit {
+export class UserSearchComponent {
 
   searchedUser: UserData = null;
 
@@ -18,75 +19,8 @@ export class UserSearchComponent implements OnInit {
     private userSearch: UserLookupService
   ) { }
 
-  ngOnInit() {
-  }
-
   lookupUser(username: string): void {
-    this.userSearch.getUserDetails(username).subscribe(data => {
-      const user = data.json();
-
-      this.searchedUser = new UserData(
-        user.login,
-        user.name,
-        user.html_url,
-        user.avatar_url,
-        user.bio,
-        user.location,
-        user.created_at,
-        user.updated_at,
-        user.public_repos,
-        [], // array of 6 unique repositories
-        user.followers,
-        user.following,
-        [] // array of starred repositories
-      );
-      // console.log(user);
-
-      this.userSearch.callWithMaxPages(user.repos_url).subscribe(data => {
-        const repositoriesData = data.json();
-        const allRepos = [];
-        // console.log(repositoriesData)
-        repositoriesData.forEach(repo => {
-          allRepos.push(new Repo( repo.name,
-                                  repo.html_url,
-                                  repo.owner.login,
-                                  repo.owner.html_url,
-                                  repo.owner.avatar_url,
-                                  repo.description,
-                                  repo.language,
-                                  repo.stargazers_count,
-                                  repo.homepage));
-        });
-        this.searchedUser.repos.push(...this.getUniqueSelection(allRepos, 6));
-      });
-
-      const starsUrl = user.starred_url.split('{')[0];
-      this.userSearch.callWithMaxPages(starsUrl).subscribe(data => {
-        const starredReposData = data.json();
-        starredReposData.forEach(repo => {
-          this.searchedUser.starredRepos.push(new Repo( repo.name,
-                                                        repo.html_url,
-                                                        repo.owner.login,
-                                                        repo.owner.html_url,
-                                                        repo.owner.avatar_url,
-                                                        repo.description,
-                                                        repo.language,
-                                                        repo.stargazers_count,
-                                                        repo.homepage));
-        });
-      });
-    });
+    const userResponse: Observable<Response> = this.userSearch.getUserDetails(username);
+    this.userSearch.generateUserData(userResponse).subscribe(data => this.searchedUser = data);
   }
-
-  getUniqueSelection(arr, selectionCount): any[] {
-    const tmp: any[] = arr.slice(arr);
-    const result = [];
-
-    for (let i: number = 0; i < selectionCount; i++) {
-      const index: number = Math.floor(Math.random() * tmp.length);
-      result.push(tmp.splice(index, 1)[0]);
-    }
-    return result;
-  }
-
 }

@@ -25,70 +25,16 @@ export class RepoSearchComponent implements OnInit {
   lookupRepo(username: string, repo: string): void {
     this.searchedRepo = null;
     this.searchedRepoCollection = [];
+
     if (username && repo) {
-      this.repoSearch.getRepoDetails(username, repo).subscribe(data => {
-        const repo = data.json();
-        // console.log(repo);
+      const repoResponse = this.repoSearch.getRepoDetails(username, repo);
+      this.repoSearch.generateRepoData(repoResponse)
+                       .subscribe(data => this.searchedRepo = data);
 
-        this.searchedRepo = new RepoData(
-          repo.owner.login,
-          repo.owner.html_url,
-          repo.owner.avatar_url,
-          repo.name,
-          repo.html_url,
-          repo.clone_url,
-          repo.description,
-          repo.homepage,
-          repo.forks,
-          0, // number of commits
-          [],  // array of 5 last commits
-          repo.stargazers_count,
-          repo.size,
-          repo.watchers,
-          repo.language,
-          repo.created_at,
-          repo.pushed_at,
-          [] // array of contributors
-        );
-
-        const commmitsUrl = repo.commits_url.split('{')[0];
-        this.repoSearch.callWithMaxPages(commmitsUrl).subscribe(data => {
-          const commits = data.json();
-          this.searchedRepo.commitsNumber = commits.length;
-
-          for (let i = 0; i < 6; i++) {
-            this.searchedRepo.commits.push({message: commits[i].commit.message,
-                                            author: commits[i].commit.author.name,
-                                            date: commits[i].commit.author.date});
-          }
-        });
-
-        this.repoSearch.callWithMaxPages(repo.contributors_url).subscribe(data => {
-          const contributors = data.json();
-          contributors.forEach(contributor => {
-            this.searchedRepo.contributors.push(new Contributor(contributor.login,
-                                                                contributor.html_url,
-                                                                contributor.avatar_url,
-                                                                contributor.contributions));
-          });
-        });
-      });
     } else if (!username && repo) {
-      this.repoSearch.getRepos(repo).subscribe(data => {
-        const reposArray = data.json().items;
-        // console.log(reposArray);
-        reposArray.forEach(repo => {
-          this.searchedRepoCollection.push(new Repo( repo.name,
-                                                repo.html_url,
-                                                repo.owner.login,
-                                                repo.owner.html_url,
-                                                repo.owner.avatar_url,
-                                                repo.description,
-                                                repo.language,
-                                                repo.stargazers_count,
-                                                repo.homepage));
-        });
-      });
+      const repoListResponse = this.repoSearch.getRepos(repo);
+      this.repoSearch.generateRepoList(repoListResponse)
+                       .subscribe(data =>  this.searchedRepoCollection = data);
     }
   }
 

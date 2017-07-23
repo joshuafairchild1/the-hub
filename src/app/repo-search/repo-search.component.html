@@ -30,7 +30,7 @@
       <p>Last 5 commits:</p>
       <div *ngFor='let commit of searchedRepo.commits'>
         <p>Message: {{commit.message}}</p>
-        <p>{{commit.author}} | {{commit.date | date}}</p>
+        <p>{{commit.name}} | {{commit.date | date}}</p>
       </div>
       Contributors:
       <div *ngFor='let contributor of searchedRepo.contributors'>

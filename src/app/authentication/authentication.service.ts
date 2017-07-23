@@ -25,11 +25,13 @@ export class AuthenticationService {
         const username = signedInUser.additionalUserInfo.username;
         this.userService.userExists(username).subscribe(user => {
           if (!user) {
-            const newUser = new User( signedInUser.user.displayName,
-                                      username,
-                                      signedInUser.user.email,
-                                      signedInUser.user.uid,
-                                      signedInUser.user.photoURL );
+            const newUser = new User(
+              signedInUser.user.displayName,
+              username,
+              signedInUser.user.email,
+              signedInUser.user.uid,
+              signedInUser.user.photoURL
+            );
 
             this.userService.createUser(newUser);
           }

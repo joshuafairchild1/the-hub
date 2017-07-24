@@ -16,12 +16,30 @@
   .about-header {
     background-color: thistle;
   }
+  // About body contains all of the cards
   .about-body {
     background-color: mintcream;
   }
+  // About card is the individual card where the grid is
   .about-card {
     background-color: whitesmoke;
+    height: 450px;
     margin-top: $nudge;
     @include grid-column(6);
+    // About wrapper controls the content of the cards
+    .about-wrapper {
+      width: 90%;
+      margin: 0 auto;
+      .about-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: tomato;
+        margin: $nudge auto;
+      }
+      h2, h3 {
+        text-align: center;
+      }
+    }
   }
 }

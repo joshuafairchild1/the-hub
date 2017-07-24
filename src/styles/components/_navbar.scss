@@ -1,0 +1,30 @@
+nav {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 8999;
+  ul {
+    display: flex;
+  }
+  .left-nav {
+    font-family: $logo;
+    // border: 5px solid pink;
+    li {
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 3px 3px 3px darken($blue, 10%);
+      margin-top: 0;
+      padding: 0;
+    }
+    a {
+      color: $white;
+      transition: 0.3s all ease-in-out;
+      &:hover {
+        color: lighten($pink, 30%);
+        opacity: 0.7;
+      }
+    }
+  }
+}

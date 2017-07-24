@@ -3,7 +3,7 @@
   box-shadow: 1px 5px 30px 1px darken($blue, 5%);
   padding: $nudge 0;
   font-size: 1.2em;
-  background-color: thistle;
+  background-color: $background-color;
   border-radius: $radius;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,17 @@
   }
   .avatar-sm {
     @extend .avatar;
-    width: 200px;
+    width: 100px;
+  }
+  .starred {
+    background-color: mistyrose;
+    display: flex;
+    align-items: flex-start;
+    .starred-info {
+      display: block;
+      background-color: tomato;
+    }
+
   }
 }
 // Searched information

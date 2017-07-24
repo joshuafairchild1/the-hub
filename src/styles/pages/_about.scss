@@ -18,7 +18,7 @@
   .about-card {
     box-shadow: 1px 5px 30px 1px darken($blue, 5%);
     border-radius: $radius;
-    background-color: thistle;
+    background-color: $background-color;
     height: 500px;
     margin: 20px 0;
     @include grid-column(6);
@@ -55,6 +55,15 @@
       }
       .about-marilyn {
         @extend .about-rose;
+        background-image: url(/../assets/images/marilyn.jpeg);
+      }
+      .about-joshua {
+        @extend .about-rose;
+        background-image: url(/../assets/images/joshua.jpg);
+      }
+      .about-arianna {
+        @extend .about-rose;
+        background-image: url(/../assets/images/arianna.jpg);
       }
       h2, h3 {
         text-align: center;

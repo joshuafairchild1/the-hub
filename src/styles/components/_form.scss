@@ -2,9 +2,16 @@ input {
   outline: none;
   padding: 10px;
   border-radius: $radius;
-  box-shadow: 0;
+  box-shadow: none;
   border: 0;
   margin-bottom: $nudge;
   font-size: 20px;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background-color: darken($background-color, 5%);
+  }
+  &:active, &:focus {
+    background-color: white;
+  }
 }

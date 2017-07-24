@@ -8,4 +8,10 @@ button {
   cursor: pointer;
   outline: none;
   margin-bottom: $nudge;
+  background-color: $purple;
+  color: $white;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $pink;
+  }
 }

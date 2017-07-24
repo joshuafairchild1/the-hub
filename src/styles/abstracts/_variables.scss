@@ -5,8 +5,13 @@ $white: #fafafa;
 $purple: #6e5494;
 $blue: #181743;
 $lighter-blue: lighten(#181743, 15%);
+$pink: #C70157;
+$background-color: lighten($lighter-blue, 58%);
 
 // COHESIVE STYLING
 $radius: 5px;
 $letter-spacing: 0.04em;
 $nudge: 10px; // for moving elements down
+
+// FONTS
+$logo: 'Titillium Web', sans-serif;

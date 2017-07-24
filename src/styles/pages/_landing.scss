@@ -2,12 +2,11 @@
 
 
 .landing-wrapper {
+  height: 100vh;
   position: relative;
   top: 0;
   left: 0;
-  z-index: -1000;
-  // z-index: -10;
-  height: 100vh;
+  z-index: -0;
   background-image: linear-gradient(to top, lighten(#181743, 15%), #181743);
 }
 
@@ -19,11 +18,9 @@
   color: $white;
   display: flex;
   justify-content: space-between;
-  // border: 4px solid tomato;
 
   .left {
     font-size: 30px;
-    // border: 3px solid thistle;
   }
 
   .center {

@@ -1,0 +1,27 @@
+
+// <div class="about-container">
+//   <div class="about-header">
+//     <h1>About the Team</h1>
+//   </div>
+//   <div class="about-body">
+//     <div class="about-card">
+
+@import "./vendors/neat/neat";
+
+.about-container {
+  background-color: mistyrose;
+  margin: 0 auto;
+  width: 75%;
+  max-width: 1100px;
+  .about-header {
+    background-color: thistle;
+  }
+  .about-body {
+    background-color: mintcream;
+  }
+  .about-card {
+    background-color: whitesmoke;
+    margin-top: $nudge;
+    @include grid-column(6);
+  }
+}

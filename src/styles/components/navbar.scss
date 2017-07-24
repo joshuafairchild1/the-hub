@@ -2,6 +2,8 @@ nav {
   padding: $nudge;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 8999;
   ul {
     display: flex;
   }

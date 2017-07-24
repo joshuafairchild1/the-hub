@@ -4,6 +4,7 @@ import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
+// import * as getUniqueSelection from 'get-unique-selection';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -71,7 +72,7 @@ export class UserLookupService {
 
       const starsUrl = user.starred_url.split('{')[0];
       this.callWithMaxPages(starsUrl).subscribe(data => {
-        userData.starredRepos = data.json().map(repo => {
+        const starredRepos = data.json().map(repo => {
           return new Repo(
             repo.name,
             repo.html_url,
@@ -84,12 +85,16 @@ export class UserLookupService {
             repo.homepage
           );
         });
+        userData.starredRepos.push(...this.getUniqueSelection(starredRepos, 6));
       });
       return userData;
     });
   }
 
   getUniqueSelection(arr, selectionCount): any[] {
+    if (arr.length <= selectionCount) {
+      return arr;
+    }
     const tmp: any[] = arr.slice(arr);
     const result = [];
 

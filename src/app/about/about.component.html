@@ -1,4 +1,15 @@
-<app-nav-bar></app-nav-bar>
+<div *ngIf='loggedInUser'>
+  <app-nav-bar></app-nav-bar>
+</div>
+<div *ngIf='loggedInUser === null'>
+  <nav>
+    <div class="left-nav">
+      <ul>
+        <li><a routerLink=''>LOGO</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <div class="about-container">
   <div class="about-header">

@@ -88,8 +88,8 @@ export class RepoLookupService {
   }
 
   generateRepoList(repoListResponse: Observable<Response>): Observable<Repo[]> {
-    return repoListResponse.map(data => {
-      return data.json().items.map(repo => {
+    return repoListResponse.map(data => { // Observable.map()
+      return data.json().items.map(repo => { // Array.map()
         return new Repo(
           repo.name,
           repo.html_url,

@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { UserService } from './user.service';
 import { AuthGuard } from './route-guards/auth-guard.service';
 import { AuthenticationService } from './authentication/authentication.service';
+import { InboxComponent } from './inbox/inbox.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     ChatRoomComponent,
     UserSearchComponent,
     RepoSearchComponent,
-    AboutComponent
+    AboutComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,

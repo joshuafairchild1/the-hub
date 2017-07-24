@@ -1,7 +1,8 @@
 <app-nav-bar></app-nav-bar>
+<h1>Hello {{loggedInUserName}}</h1>
 <div *ngFor="let message of messages">
-  <p>{{message.message}}</p>
+  <p>{{message.userName}}, {{message.timestamp | date: 'medium'}}: {{message.message}}</p>
 </div>
 <form>
-  <input #input autocomplete="off"><button (click)="beginSending(input.value)">Send</button>
+  <input #input autocomplete="off"><button (click)="beginSending(input.value); input.value=''">Send</button>
 </form>

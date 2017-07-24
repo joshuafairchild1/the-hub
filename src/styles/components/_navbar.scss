@@ -22,8 +22,17 @@ nav {
       color: $white;
       transition: 0.3s all ease-in-out;
       &:hover {
-        color: lighten($pink, 30%);
+        color: lighten($pink, 20%);
         opacity: 0.7;
+      }
+    }
+  }
+  .right-nav {
+    li {
+      a {
+        color: $white;
+        padding-bottom: $nudge;
+        border-bottom: 3px solid $pink;
       }
     }
   }

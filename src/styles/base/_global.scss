@@ -2,9 +2,14 @@
 //// GLOBAL STYLES ////
 //////////////////////
 
+::selection {
+  background-color: hotpink;
+  color: white;
+}
+
 body {
   font-family: sans-serif;
-  color: $black;
+  background-image: linear-gradient(to top, lighten(#181743, 15%), #181743);
 }
 
 a {

@@ -1,5 +1,6 @@
 // Search form
 .search-wrapper {
+  box-shadow: 1px 5px 30px 1px darken($blue, 5%);
   padding: $nudge 0;
   font-size: 1.2em;
   background-color: thistle;
@@ -11,6 +12,9 @@
   max-width: 800px;
   h2 {
     padding-bottom: $nudge;
+  }
+  h3 {
+    margin-top: $nudge;
   }
   .user-search {
     display: flex;
@@ -26,8 +30,11 @@
     max-width: 85%;
     background-color: $white;
   }
+  .avatar-sm {
+    @extend .avatar;
+    width: 200px;
+  }
 }
-
 // Searched information
 .searched-user {
   background-color: tomato;

@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
+  loggedInUser: any;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngDoCheck(): void {
+    this.loggedInUser = firebase.auth().currentUser;
   }
 
 }

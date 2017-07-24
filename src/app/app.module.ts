@@ -19,6 +19,7 @@ import { UserService } from './user.service';
 import { AuthGuard } from './route-guards/auth-guard.service';
 import { AuthenticationService } from './authentication/authentication.service';
 import { InboxComponent } from './inbox/inbox.component';
+import * as firebase from 'firebase';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,6 +27,9 @@ export const firebaseConfig = {
   databaseURL: masterFirebaseConfig.databaseURL,
   storageBucket: masterFirebaseConfig.storageBucket
 };
+
+// the reason behind this can be found here https://github.com/angular/angularfire2/issues/556
+firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [

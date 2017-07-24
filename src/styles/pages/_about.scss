@@ -1,0 +1,64 @@
+@import "./vendors/neat/neat";
+
+
+.about-container {
+  margin: 0 auto;
+  width: 75%;
+  max-width: 1100px;
+  .about-header {
+    margin-top: 50px;
+    color: $white;
+    text-align: center;
+  }
+  // About body contains all of the cards
+  .about-body {
+    background-color: mintcream;
+  }
+  // About card is the individual card where the grid is
+  .about-card {
+    box-shadow: 1px 5px 30px 1px darken($blue, 5%);
+    border-radius: $radius;
+    background-color: thistle;
+    height: 500px;
+    margin: 20px 0;
+    @include grid-column(6);
+    .about-background {
+      background: url(/../assets/images/about_wave.svg) repeat-x;
+      background-position: bottom right;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      border-radius: $radius;
+    }
+    .about-background2 {
+      @extend .about-background;
+      background-position: bottom left;
+    }
+    // About wrapper controls the content of the cards
+    .about-wrapper {
+      width: 90%;
+      margin: 0 auto;
+      .about-rose {
+        // border: 5px solid $blue;
+        width: 175px;
+        height: 175px;
+        border-radius: 50%;
+        background-image: url(/../assets/images/rose.jpg);
+        background-size: contain;
+        margin: $nudge auto 0 auto;
+      }
+      .about-joshua {
+        @extend .about-rose;
+      }
+      .about-arianna {
+        @extend .about-rose;
+      }
+      .about-marilyn {
+        @extend .about-rose;
+      }
+      h2, h3 {
+        text-align: center;
+      }
+    }
+  }
+}

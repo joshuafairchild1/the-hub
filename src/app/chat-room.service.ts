@@ -33,13 +33,6 @@ export class ChatRoomService {
   }
 
   addMessage(localChatRoom, messageToAdd: Message) {
-    // let messages;
-    // var chatRoomEntryInFirebase = this.getChatRoomById(localChatRoom.$key);
-    // this.getChatRoomById(localChatRoom.$key).subscribe(data => {
-    //   // data.messages.push(messageToAdd);
-    // });
-    // chatRoomEntryInFirebase.update({messages: messages});
-    // this doesn't work...
     this.database.list(`chatrooms/${localChatRoom.$key}/messages`).push(messageToAdd);
   }
 

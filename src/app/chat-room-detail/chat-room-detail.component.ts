@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Chatroom } from '../chat-room.model';
 import { ChatRoomService } from '../chat-room.service';
@@ -32,31 +32,39 @@ export class ChatRoomDetailComponent implements OnInit {
   loggedInUserName: string;
   chatrooms;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private location: Location,
     private chatroomService: ChatRoomService,
     private userService: UserService,
     private authService: AuthenticationService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-    this.route.params.forEach((urlParameters) => {
+    this.route.params.subscribe((urlParameters) => {
       this.chatroomId = urlParameters['id'];
-    });
-    this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
-    this.chatRoomToDisplay.subscribe(data => {
-      this.chatRoomToDisplayMessages = data;
-      // console.log(data);
-      this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
-    });
-    this.authorizedUser = this.authService.user;
+      this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
-    this.authorizedUser.subscribe(data => {
-      this.loggedInUser = this.userService.getUserByUID(data.uid);
-      this.loggedInUser.subscribe(data => this.loggedInUserName = data[0].username);
+      this.chatRoomToDisplay.subscribe(data => {
+        this.chatRoomToDisplayMessages = data;
+        // console.log(data);
+        this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
+      });
+      this.authorizedUser = this.authService.user;
+
+      this.authorizedUser.subscribe(data => {
+        this.loggedInUser = this.userService.getUserByUID(data.uid);
+        this.loggedInUser.subscribe(data => this.loggedInUserName = data[0].username);
+      });
+      this.chatrooms = this.chatroomService.chatrooms;
     });
-    this.chatrooms = this.chatroomService.chatrooms;
+  }
+
+  changeChatRoom(chatRoomToShowNow) {
+    this.router.navigate([`/chatrooms/${chatRoomToShowNow.$key}`]);
   }
 
   beginSending(input: string) {

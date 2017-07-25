@@ -1,9 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <h1>Hello {{loggedInUserName}}</h1>
+<h1>IT's {{(chatRoomToDisplay | async)?.name}}</h1>
 <div class="chat-container">
   <div class="chat-sidebar">
     <div *ngFor="let chatroom of chatrooms | async">
-      <h3>{{chatroom.name}}</h3>
+      <h3 (click)="changeChatRoom(chatroom)">{{chatroom.name}}</h3>
     </div>
   </div>
   <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">

@@ -2,7 +2,7 @@
 .search-wrapper {
   box-shadow: 1px 5px 30px 1px darken($blue, 5%);
   padding: $nudge 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
   background-color: $background-color;
   border-radius: $radius;
   display: flex;
@@ -10,12 +10,6 @@
   margin: 10vh auto;
   width: 50%;
   max-width: 800px;
-  h2 {
-    padding-bottom: $nudge;
-  }
-  h3 {
-    margin-top: $nudge;
-  }
   .user-search {
     display: flex;
     flex-direction: column;
@@ -33,6 +27,23 @@
   .avatar-sm {
     @extend .avatar;
     width: 125px;
+  }
+  a {
+    color: $pink;
+    font-size: 1em;
+  }
+  strong {
+    color: lighten($blue, 10%);
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .description {
+    font-size: .8em;
+  }
+  .language {
+    font-size: .7em;
+    font-style: italic;
   }
   .starred-wrapper {
     @include grid-column(12);

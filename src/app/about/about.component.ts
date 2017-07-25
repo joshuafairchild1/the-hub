@@ -13,6 +13,7 @@ export class AboutComponent {
 
   ngDoCheck(): void {
     this.loggedInUser = firebase.auth().currentUser;
+    console.log(this.loggedInUser)
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from './../authentication/authentication.service';
+import { UserService } from './../user.service';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,23 +10,22 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./navbar.component.scss'],
   providers: [AuthenticationService]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   userObservable: Observable<any>;
-  userFullName: string = null;
-  user: any;
+  githubUsername: string = null;
 
   constructor(
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private userService: UserService
   ) {
-    this.userObservable = this.authService.user;
-  }
-
-  ngOnInit(): void {
-    this.userObservable.subscribe(data => {
-      this.user = data;
+    this.authService.user.subscribe(data => {
+      if (data) {
+        this.userService.getUserByUID(data.uid).subscribe(data => {
+          this.githubUsername = data[0].username;
+        });
+      }
     });
   }
-
 
   logout(): void {
     this.authService.logout();

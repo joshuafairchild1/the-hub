@@ -10,6 +10,7 @@ import { User } from './../user.model';
 @Injectable()
 export class AuthenticationService {
   user: Observable<firebase.User>;
+  authenticatedUsername: string;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -23,6 +24,8 @@ export class AuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
       .then(signedInUser => {
         const username = signedInUser.additionalUserInfo.username;
+        this.authenticatedUsername = username;
+        console.log(this.authenticatedUsername)
         this.userService.userExists(username).subscribe(user => {
           if (!user) {
             const newUser = new User(

@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'chat-room',
+    path: 'chatrooms',
     component: ChatRoomComponent,
     canActivate: [AuthGuard]
   },

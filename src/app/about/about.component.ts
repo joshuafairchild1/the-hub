@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase/app';
+import { AuthenticationService } from './../authentication/authentication.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  providers: [AuthenticationService]
 })
 export class AboutComponent {
-  loggedInUser: any;
+  loggedInUser: firebase.User;
 
-  constructor() {}
+  constructor(
+    private authService: AuthenticationService
+  ) {}
 
-  ngDoCheck(): void {
-    this.loggedInUser = firebase.auth().currentUser;
-    console.log(this.loggedInUser)
+  ngOnInit(): void {
+    this.authService.user.subscribe(data => this.loggedInUser = data);
   }
 
 }

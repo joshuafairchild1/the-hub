@@ -1,0 +1,56 @@
+@import "./../vendors/neat/neat";
+
+.chat-container {
+  @include grid-column(12);
+  background-color: $pink;
+  border: 5px solid black;
+  height: 80%;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1500px;
+
+  .chat-body {
+    @include grid-column(10);
+    background-color: $background-color;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: auto;
+    overflow-y: scroll;
+    #send {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      form {
+        width: 90%;
+        position: relative;
+      }
+      input {
+        width: 100%;
+        padding-right: 80px;
+      }
+      button {
+        position: absolute;
+        right: -100px;
+        top: 0;
+        width: 80px
+      }
+    }
+    .userNameAndMessage {
+      font-size: 1.2em;
+      margin-left: 2%;
+    }
+    .timestamp {
+      font-size: .9em;
+      margin-left: 5%;
+    }
+  }
+  .chat-sidebar {
+    @include grid-column(2);
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}

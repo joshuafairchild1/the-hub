@@ -32,9 +32,10 @@ export class RepoSearchComponent implements OnInit {
                        .subscribe(data => this.searchedRepo = data);
 
     } else if (!username && repo) {
+      console.log('h')
       const repoListResponse = this.repoSearch.getRepos(repo);
       this.repoSearch.generateRepoList(repoListResponse)
-                       .subscribe(data =>  this.searchedRepoCollection = data);
+                       .subscribe(data =>  {this.searchedRepoCollection = data; console.log(this.searchedRepoCollection)});
     }
   }
 

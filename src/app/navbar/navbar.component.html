@@ -8,6 +8,7 @@
   <div class="right-nav">
     <ul>
       <li><span>Welcome, {{githubUsername}}</span></li>
+      <li *ngIf='githubUsername'><a>Welcome, {{githubUsername}}</a></li>
       <li><a routerLink="/chat-room">Chat Room</a></li>
       <li><a routerLink="/user-search">Search Users</a></li>
       <li><a routerLink='/repo-search'>Search Repos</a></li>

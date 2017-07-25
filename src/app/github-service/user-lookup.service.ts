@@ -4,7 +4,7 @@ import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
-// import * as getUniqueSelection from 'get-unique-selection';
+import { getUniqueSelection } from './../../../node_modules/get-unique-selection';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -67,7 +67,7 @@ export class UserLookupService {
             repo.homepage
           );
         });
-        userData.repos.push(...this.getUniqueSelection(allRepos, 6));
+        userData.repos = getUniqueSelection(allRepos, 6);
       });
 
       const starsUrl = user.starred_url.split('{')[0];
@@ -85,23 +85,9 @@ export class UserLookupService {
             repo.homepage
           );
         });
-        userData.starredRepos.push(...this.getUniqueSelection(starredRepos, 6));
+        userData.starredRepos = getUniqueSelection(starredRepos, 6);
       });
       return userData;
     });
-  }
-
-  getUniqueSelection(arr, selectionCount): any[] {
-    if (arr.length <= selectionCount) {
-      return arr;
-    }
-    const tmp: any[] = arr.slice(arr);
-    const result = [];
-
-    for (let i = 0; i < selectionCount; i++) {
-      const index: number = Math.floor(Math.random() * tmp.length);
-      result.push(tmp.splice(index, 1)[0]);
-    }
-    return result;
   }
 }

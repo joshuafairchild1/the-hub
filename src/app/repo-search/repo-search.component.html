@@ -52,16 +52,15 @@
         </div>
       </div>
     </div>
-    <div *ngIf='searchedRepoCollection'>
-      <div *ngFor='let repo of searchedRepoCollection'>
-        <img src="{{repo.authorAviUrl}}" class="avatar">
-        <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
-          | {{repo.language}} | {{repo.stars}} stars |
-          <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
-          <p *ngIf='repo.description'>{{repo.description}}</p>
-          <button (click)='lookupRepo(repo.authorName, repo.repoName)'>View Details</button>
-        </div>
-
-      </div>
+  </div>
+  <div *ngIf='searchedRepoCollection'>
+    <div *ngFor='let repo of searchedRepoCollection'>
+      <img src="{{repo.authorAviUrl}}" class="avatar">
+      <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
+        | {{repo.language}} | {{repo.stars}} stars |
+      <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+      <p *ngIf='repo.description'>{{repo.description}}</p>
+      <button (click)='lookupRepo(repo.authorName, repo.repoName)'>View Details</button>
+    </div>
   </div>
 </div>

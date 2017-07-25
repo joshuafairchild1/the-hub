@@ -2,9 +2,10 @@
 
 
 .about-container {
-  margin: 0 auto;
+  margin: 0 auto 0;
   width: 75%;
   max-width: 1100px;
+  height: 92vh;
   .about-header {
     margin-top: 50px;
     color: $white;
@@ -19,8 +20,8 @@
     box-shadow: 1px 5px 30px 1px darken($blue, 5%);
     border-radius: $radius;
     background-color: $background-color;
-    height: 500px;
-    margin: 20px 0;
+    height: 525px;
+    margin: 15px 0;
     @include grid-column(6);
     .about-background {
       background: url(/../assets/images/about_wave.svg) repeat-x;

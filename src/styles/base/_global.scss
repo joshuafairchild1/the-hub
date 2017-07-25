@@ -8,8 +8,8 @@
 }
 
 body {
-  font-family: sans-serif;
-  // background-color: $blue;
+  font-family: $primary, sans-serif;
+  font-size: 1.1em;
   background-image: linear-gradient(to top, $blue, $lighter-blue, $blue);
 }
 
@@ -27,6 +27,11 @@ li {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 5px 0;
+}
+
+hr {
+  border-top: 2px solid $black;
+  border-bottom: none;
 }
 
 //////////////////////

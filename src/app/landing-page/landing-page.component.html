@@ -41,7 +41,10 @@
           <div></div>
 	    </div> -->
 	 <!-- </div> -->
-      <h1 *ngIf='!loggedIn'><a (click)='login()'>Sign Up with Your Github Account</a></h1>
+   <div class="sign-up-wrapper">
+     <h1 *ngIf='!loggedIn'><a (click)='login()' class="sign-up">Sign Up With Github <i class="fa fa-github-alt" aria-hidden="true"></i></a></h1>
+
+   </div>
       <h1 *ngIf='loggedIn'>Have a stellar time! 👽</h1>
 
   <!--NAVIGATION-->

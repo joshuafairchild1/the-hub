@@ -14,6 +14,18 @@
     padding-bottom: 0;
     text-align: center;
   }
+  .sign-up {
+    color: $green;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .fa-github-alt {
+    color: $white;
+    cursor: pointer;
+  }
 }
 
 .landing {

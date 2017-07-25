@@ -48,3 +48,15 @@ nav {
     }
   }
 }
+
+// Landing page when not logged in
+.left a, .right a {
+  color: $white;
+  padding-bottom: $nudge;
+  border-bottom: 3px solid $pink;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 3px solid $green;
+  }
+}

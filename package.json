@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-scroll-glue": "^1.0.7",
     "angular2-toaster": "^4.0.1",
     "angularfire2": "^4.0.0-rc.0",
     "bourbon-neat": "^1.9.0",

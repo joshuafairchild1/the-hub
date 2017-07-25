@@ -39,4 +39,5 @@ export class ChatRoomService {
   getChatRoomMessages(chatroomId: string) {
     return this.database.list(`chatrooms/${chatroomId}/messages`);
   }
+
 }

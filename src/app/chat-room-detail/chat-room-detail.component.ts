@@ -10,7 +10,6 @@ import { UserService } from '../user.service';
 import { AuthenticationService } from './../authentication/authentication.service';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
-// import {ToasterContainerComponent, ToasterService} from 'angular2-toaster';
 
 @Component({
   selector: 'app-chat-room-detail',
@@ -19,8 +18,7 @@ import { Observable } from 'rxjs/Observable';
   providers: [ChatRoomService,
               UserService,
               AuthenticationService
-    // ToasterService
-  ],
+  ]
 })
 
 export class ChatRoomDetailComponent implements OnInit {
@@ -32,13 +30,13 @@ export class ChatRoomDetailComponent implements OnInit {
   loggedInUser: FirebaseListObservable<any[]>;
   authorizedUser: Observable<firebase.User>;
   loggedInUserName: string;
+  chatrooms;
 
   constructor(private route: ActivatedRoute,
     private location: Location,
     private chatroomService: ChatRoomService,
     private userService: UserService,
     private authService: AuthenticationService
-    // private toasterService: ToasterService
   ) { }
 
   ngOnInit() {
@@ -52,16 +50,13 @@ export class ChatRoomDetailComponent implements OnInit {
       // console.log(data);
       this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
     });
-
     this.authorizedUser = this.authService.user;
 
     this.authorizedUser.subscribe(data => {
-      // console.log(data.uid);
       this.loggedInUser = this.userService.getUserByUID(data.uid);
-      // console.log(this.loggedInUser)
       this.loggedInUser.subscribe(data => this.loggedInUserName = data[0].username);
     });
-
+    this.chatrooms = this.chatroomService.chatrooms;
   }
 
   beginSending(input: string) {
@@ -71,8 +66,4 @@ export class ChatRoomDetailComponent implements OnInit {
     const newMessage: Message = new Message(dateSent, this.loggedInUserName, input);
     this.chatroomService.addMessage(this.chatRoomToDisplayMessages, newMessage);
   }
-
-  // popToast() {
-  //   this.toasterService.pop('success', 'Args Title', 'Args Body');
-  // }
 }

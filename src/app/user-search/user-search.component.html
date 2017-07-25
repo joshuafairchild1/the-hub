@@ -37,29 +37,37 @@
 
     <!--USER REPOS-->
     <div class="results-wrapper">
-      <p><strong>Sample Repositories:</strong> </p>
+      <p><strong>Repository selection:</strong><br></p>
       <ul>
         <li *ngFor='let repo of searchedUser.repos'>
-          <p class="repos"><strong><a href="{{repo.repoURL}}">{{repo.repoName}} </a></strong>
-            {{repo.language}} |
-            {{repo.stars}} stars
+          <p class="repos"><strong><a href="{{repo.repoUrl}}">{{repo.repoName}} </a></strong>
+            <span class="language">{{repo.language}} |
+            {{repo.stars}} stars</span>
           <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
-          <p *ngIf='repo.description'>{{repo.description}}</p>
+          <p *ngIf='repo.description' class="description">{{repo.description}}</p>
         </li>
+        <br>
+        <p class="starred-title"><strong>Selected starred repositories:</strong> </p>
       </ul>
-
-        <!--STARRED REPOS-->
-      <p class="starred"><strong>Starred repositories:</strong> </p>
+      <br>
+      <!--STARRED REPOS-->
+      <div class="starred-wrapper">
       <ul>
         <li *ngFor='let repo of searchedUser.starredRepos' class="starred">
-          <img src="{{repo.authorAviUrl}}" class="avatar-sm">
-          <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
-          <span class="starred-info">{{repo.language}} | {{repo.stars}} stars |
-          <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></span>
-        </p>
-          <p *ngIf='repo.description'>{{repo.description}}</p>
-        </li>
+          <div class="starred-top">
+            <img src="{{repo.authorAviUrl}}" class="avatar-sm">
+            <p class="starred-info"><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
+              <em><span class="starred-info-secondary"><span *ngIf='repo.language'>{{repo.language}} |</span> {{repo.stars}} stars
+                <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">| Website</a></span></span></em>
+                </p>
+                <div *ngIf='repo.description' class="starred-bottom">
+                  <hr>
+                  {{repo.description}}</div>
+          </div>
+            <!-- <p *ngIf='repo.description' class="starred-bottom">{{repo.description}}</p> -->
+          </li>
       </ul>
     </div><!--SEARCHED USER CLOSES-->
+  </div>
   </div><!--RESULTS WRAPPER CLOSES-->
 </div><!--SEARCH WRAPPER CLOSES-->

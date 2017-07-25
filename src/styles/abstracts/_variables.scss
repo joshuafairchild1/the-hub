@@ -6,12 +6,20 @@ $purple: #6e5494;
 $blue: #181743;
 $lighter-blue: lighten(#181743, 15%);
 $pink: #C70157;
+$green: #01c771;
 $background-color: lighten($lighter-blue, 58%);
 
 // COHESIVE STYLING
 $radius: 5px;
 $letter-spacing: 0.04em;
 $nudge: 10px; // for moving elements down
+$box-shadow: 1px 5px 30px 1px darken($blue, 5%);
 
 // FONTS
+// Lato:300,300i,400,400i,700
 $logo: 'Titillium Web', sans-serif;
+$primary: 'Lato';
+$thin: 300;
+$thin-italic: '300i';
+$regular-italic: '400i';
+$bold: 700;

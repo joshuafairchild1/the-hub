@@ -1,18 +1,23 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 import * as firebase from 'firebase/app';
+import { AuthenticationService } from './../authentication/authentication.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  providers: [AuthenticationService]
 })
-export class AboutComponent implements DoCheck {
-  loggedInUser: any;
+export class AboutComponent {
+  loggedInUser: firebase.User;
 
-  constructor() {}
+  constructor(
+    private authService: AuthenticationService
+  ) {}
 
-  ngDoCheck(): void {
-    this.loggedInUser = firebase.auth().currentUser;
+  ngOnInit(): void {
+    this.authService.user.subscribe(data => this.loggedInUser = data);
   }
 
 }

@@ -10,7 +10,6 @@ nav {
   }
   .left-nav {
     font-family: $logo;
-    // border: 5px solid pink;
     li {
       font-size: 50px;
       font-weight: bold;
@@ -28,11 +27,23 @@ nav {
     }
   }
   .right-nav {
-    li {
-      a {
-        color: $white;
-        padding-bottom: $nudge;
-        border-bottom: 3px solid $pink;
+    ul {
+      li {
+        span {
+          color: $green;
+          font-style: italic;
+        }
+        a {
+          color: $white;
+          padding-bottom: $nudge;
+          border-bottom: 3px solid $pink;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+          &:hover {
+            border-bottom: 3px solid $green;
+            color: $pink;
+          }
+        }
       }
     }
   }

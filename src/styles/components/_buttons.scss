@@ -1,17 +1,67 @@
+// button {
+//   padding: 10px 15px;
+//   border-radius: $radius;
+//   border: 0;
+//   text-transform: uppercase;
+//   letter-spacing: $letter-spacing;
+//   font-size: 1.2em;
+//   cursor: pointer;
+//   outline: none;
+//   margin-bottom: $nudge;
+//   background-color: $purple;
+//   color: $white;
+//   transition: all 0.3s ease-in-out;
+//   &:hover {
+//     background-color: $pink;
+//   }
+// }
+
 button {
-  padding: 10px 15px;
+  background: $green;
+  color: white;
+  border: none;
   border-radius: $radius;
-  border: 0;
-  text-transform: uppercase;
-  letter-spacing: $letter-spacing;
-  font-size: 1.2em;
+  font-size: .8em;
+  display: inline-block;
+  font-family: $primary;
+  overflow: hidden;
+  padding: 15px 45px 15px 40px;
+  position: relative;
+  text-decoration: none;
+  transition: 0.4s ease;
+  z-index: 1;
   cursor: pointer;
-  outline: none;
-  margin-bottom: $nudge;
-  background-color: $purple;
-  color: $white;
-  transition: all 0.3s ease-in-out;
+  &:before,
+  &:after {
+    background: $pink;
+    transition: 0.3s ease;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  &:before {
+    top: 0;
+    bottom: 0;
+    left: -120%;
+    transform: skewX(-45deg);
+    width: 100%;
+  }
+  &:after {
+    
+  }
+}
+
+.top-left {
+  &:before {
+    top: 0;
+    bottom: 0;
+    left: -120%;
+    transform: skewX(-45deg);
+    width: 100%;
+  }
   &:hover {
-    background-color: $pink;
+    &:before {
+      width: 240%;
+    }
   }
 }

@@ -7,11 +7,11 @@
 
   <div class="right-nav">
     <ul>
-      <li><a routerLink="/user-search">User Search</a></li>
-      <li><a routerLink='/repo-search'>Repo Search</a></li>
-      <li><a routerLink="/about">About</a></li>
+      <li *ngIf='githubUsername'><a>Welcome, {{githubUsername}}</a></li>
       <li><a routerLink="/chat-room">Chat Room</a></li>
-      <li><a>Welcome, {{githubUsername}}</a></li>
+      <li><a routerLink="/user-search">Search Users</a></li>
+      <li><a routerLink='/repo-search'>Search Repos</a></li>
+      <li><a routerLink="/about">About</a></li>
       <li (click)='logout()'><a>Log out</a></li>
     </ul>
   </div>

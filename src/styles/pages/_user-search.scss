@@ -2,7 +2,7 @@
 .search-wrapper {
   box-shadow: 1px 5px 30px 1px darken($blue, 5%);
   padding: $nudge 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
   background-color: $background-color;
   border-radius: $radius;
   display: flex;
@@ -10,12 +10,6 @@
   margin: 10vh auto;
   width: 50%;
   max-width: 800px;
-  h2 {
-    padding-bottom: $nudge;
-  }
-  h3 {
-    margin-top: $nudge;
-  }
   .user-search {
     display: flex;
     flex-direction: column;
@@ -32,24 +26,70 @@
   }
   .avatar-sm {
     @extend .avatar;
-    width: 100px;
+    width: 125px;
   }
-  .starred {
-    background-color: mistyrose;
-    display: flex;
-    align-items: flex-start;
-    .starred-info {
-      display: block;
-      background-color: tomato;
+  a {
+    color: $pink;
+    font-size: 1em;
+  }
+  strong {
+    color: lighten($blue, 10%);
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .description {
+    font-size: .8em;
+  }
+  .language {
+    font-size: .7em;
+    font-style: italic;
+  }
+  .starred-wrapper {
+    @include grid-column(12);
+    .starred {
+      @include grid-column(6);
+      height: 350px;
+      box-shadow: 1px 1px 5px lighten($lighter-blue, 30%);
+      background-color: darken($background-color, 10%);
+      margin-bottom: $nudge;
+      word-wrap: break-word;
+      border-radius: $radius;
+      padding: 100px;
+      text-align: center;
+      font-weight: bold;
+      hr {
+        margin: 5px auto;
+      }
+      .starred-top {
+        width: 90%;
+        margin: 0 auto;
+        .starred-info {
+          .starred-info-secondary {
+            display: block;
+            font-size: 0.8em;
+          }
+        }
+        .starred-bottom {
+          display: block;
+          font-size: 0.75em;
+          font-weight: normal;
+        }
+      }
+      .starred-title {
+        display: block;
+      }
+      .starred-bottom {
+        display: block;
+      }
     }
-
   }
 }
 // Searched information
 .searched-user {
-  background-color: tomato;
+  background-color: inherit;
   .searched-header {
-    background-color: mistyrose;
+    background-color: inherit;
     text-align: center;
     line-height: 1.5em;
     padding-bottom: $nudge;

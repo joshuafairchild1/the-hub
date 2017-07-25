@@ -25,7 +25,6 @@ export class AuthenticationService {
       .then(signedInUser => {
         const username = signedInUser.additionalUserInfo.username;
         this.authenticatedUsername = username;
-        console.log(this.authenticatedUsername)
         this.userService.userExists(username).subscribe(user => {
           if (!user) {
             const newUser = new User(

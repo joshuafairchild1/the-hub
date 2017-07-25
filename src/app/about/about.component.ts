@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent {
+export class AboutComponent implements DoCheck {
   loggedInUser: any;
 
   constructor() {}

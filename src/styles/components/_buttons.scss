@@ -17,7 +17,9 @@
 // }
 
 button {
-  background: $green;
+  // background: $green;
+  // background-image: linear-gradient(to top left, darken($green, 20%), $green);
+  background-image: linear-gradient(to top left, darken($green, 15%), $green);
   color: white;
   border: none;
   border-radius: $radius;
@@ -34,7 +36,9 @@ button {
   outline: none;
   &:before,
   &:after {
-    background: $pink;
+    // background: $pink;
+    // background-image: linear-gradient(to top left, $green, darken($green, 20%));
+    background-image: linear-gradient(to top left, darken($pink, 15%), $pink);
     transition: 0.3s ease;
     content: '';
     position: absolute;

@@ -36,13 +36,24 @@
   }
   .starred {
     background-color: mistyrose;
-    display: flex;
-    align-items: flex-start;
     .starred-info {
       display: block;
       background-color: tomato;
     }
-
+    .starred-top {
+      background-color: aqua;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 250px;
+      word-wrap: break-word;
+      margin: 0 auto;
+    }
+    .starred-bottom {
+      background-color: red;
+      display: block;
+    }
   }
 }
 // Searched information

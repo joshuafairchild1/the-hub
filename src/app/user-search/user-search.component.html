@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <!--NAVBAR-->
 
+<h1>Search for a GitHub account</h1>
 <div class="search-wrapper">
   <!--USER-SEARCH CONTAINS FORM FOR SEARCHING A USER-->
   <div class="user-search">
-    <h2>Search for a GitHub account</h2>
     <input #username (keyup.enter)='lookupUser(username.value); username.value="";' placeholder="GitHub username">
-    <button (click)='lookupUser(username.value); username.value="";'>Search</button>
+    <button class="top-left" (click)='lookupUser(username.value); username.value="";'>Search</button>
   </div><!--USER SEARCH CLOSES-->
 
   <!--SEARCHED USER CONTAINS SEARCH RESULTS-->

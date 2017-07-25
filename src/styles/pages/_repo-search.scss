@@ -1,13 +1,12 @@
 // repo-search inherits many styles from _user-search.scss
 
 .repo-search {
-  padding: $nudge 0;
+  padding: 30px 0;
+  margin: 0 auto;
   h2 {
     text-align: center;
     padding-bottom: $nudge;
   }
-  padding-top: $nudge;
-  margin: 0 auto;
   button {;
     margin: 0 auto;
     display: block;

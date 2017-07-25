@@ -31,6 +31,7 @@ button {
   transition: 0.4s ease;
   z-index: 1;
   cursor: pointer;
+  outline: none;
   &:before,
   &:after {
     background: $pink;
@@ -47,7 +48,7 @@ button {
     width: 100%;
   }
   &:after {
-    
+
   }
 }
 

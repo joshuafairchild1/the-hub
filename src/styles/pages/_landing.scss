@@ -86,10 +86,10 @@
 
 @keyframes bounce {
   to {
-    transform: translateY(0px);
+    transform: translateY(15px);
   }
   from {
-    transform: translateY(-20px);
+    transform: translateY(-5px);
   }
 }
 
@@ -198,4 +198,55 @@
     top: 75%;
     left: 75%;
     box-shadow: inset 1px 2px 0;
+}
+.stars {
+  position: relative;
+	width: 300px;
+	height: 400px;
+  margin: 0 auto;
+ .star {
+    width:50px;
+    top: 140px;
+    transform: rotate(25deg);
+    div:nth-child(1) {
+    width: 10px;
+    position:relative;
+    height: 6px;
+    border-radius: 50%;
+    background:#fff;
+    animation: twinkle-right 1s ease infinite;
+   }
+
+   div:nth-child(2) {
+    width:6px;
+    height:20px;
+    top:-5px;
+    position:absolute;
+    background:#fff;
+    border-radius: 100%;
+    left:7px;
+    top: -7px;
+    transform-origin:middle;
+    animation: twinkle-height 1s ease infinite;
+		}
+}
+  .star:nth-child(2) {
+    top:120px;
+    left:70px;
+    transform: scale(.5);
+    div {
+     animation-delay: 200ms;
+    }
+  }
+	}
+  @keyframes twinkle-right {
+	0% { width: 20px;left:0px}
+	50% { width: 10px; left:5px}
+	100% { width: 20px;left:0px}
+}
+
+@keyframes twinkle-height {
+	0% { height: 20px;top:-7px}
+	50% { height: 10px; top:-3px}
+	100% { height: 20px;top:-7px}
 }

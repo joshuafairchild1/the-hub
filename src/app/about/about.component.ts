@@ -17,9 +17,6 @@ export class AboutComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loggedInUser = firebase.auth().currentUser;
-    // console.log(this.loggedInUser)
-    // console.log(this.loggedInUser)
     this.authService.user.subscribe(data => this.loggedInUser = data);
   }
 

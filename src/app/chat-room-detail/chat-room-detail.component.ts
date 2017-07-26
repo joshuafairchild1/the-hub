@@ -22,14 +22,15 @@ import { Observable } from 'rxjs/Observable';
 })
 
 export class ChatRoomDetailComponent implements OnInit {
-  chatroomId: string;
   chatRoomToDisplay: FirebaseObjectObservable<any>;
-  chatRoomToDisplayMessages: any;
-  messages: Message [];
   loggedInUser: FirebaseListObservable<any[]>;
-  authorizedUser: Observable<firebase.User>;
-  loggedInUserName: string;
   chatrooms: FirebaseListObservable<any[]>;
+  chatroomUsers: FirebaseListObservable<any[]>;
+  authorizedUser: Observable<firebase.User>;
+  messages: Message [];
+  chatRoomToDisplayMessages: any;
+  loggedInUserName: string;
+  chatroomId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +45,8 @@ export class ChatRoomDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((urlParameters) => {
       this.chatroomId = urlParameters['id'];
-      console.log(this.chatroomId)
+
+      this.chatroomUsers = this.chatroomService.getCurrentChatroomUsers(this.chatroomId);
 
       this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
@@ -64,8 +66,10 @@ export class ChatRoomDetailComponent implements OnInit {
     });
   }
 
-  changeChatRoom(chatRoomToShowNow): void {
-    this.router.navigate([`/chatrooms/${chatRoomToShowNow.$key}`]);
+  changeChatRoom(selectedChatroom: any): void {
+    this.chatroomService.leaveChatroom(this.loggedInUserName, this.chatroomId);
+    this.chatroomService.joinChatRoom(this.loggedInUserName, selectedChatroom.$key);
+    this.router.navigate([`/chatrooms/${selectedChatroom.$key}`]);
   }
 
   submitForm(name: string): void {

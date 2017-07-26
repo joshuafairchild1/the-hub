@@ -40,4 +40,16 @@ export class ChatRoomService {
     return this.database.list(`chatrooms/${chatroomId}/messages`);
   }
 
+  joinChatRoom(username: string, chatroomId: string): void {
+    this.database.list(`chatrooms/${chatroomId}/current-users`).update(username, {username: username});
+  }
+
+  leaveChatroom(username: string, chatroomId: string): void {
+    this.database.object(`chatrooms/${chatroomId}/current-users/${username}`).remove();
+  }
+
+  getCurrentChatroomUsers(chatroomId: string): FirebaseListObservable<any[]> {
+    return this.database.list(`chatrooms/${chatroomId}/current-users`);
+  }
+
 }

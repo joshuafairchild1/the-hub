@@ -7,9 +7,9 @@
   border-radius: $radius;
   display: flex;
   flex-direction: column;
-  margin: 5.2vh auto;
-  width: 50%;
-  max-width: 800px;
+  margin: 0 auto;
+  width: 60%;
+  max-width: 960px;
   .user-search {
     margin: 30px;
     display: flex;
@@ -28,6 +28,10 @@
   .avatar-sm {
     @extend .avatar;
     width: 125px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: $nudge;
   }
   a {
     color: $pink;

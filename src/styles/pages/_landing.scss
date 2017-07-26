@@ -211,54 +211,66 @@
     left: 75%;
     box-shadow: inset 1px 2px 0;
 }
-.stars {
-  position: relative;
-	width: 300px;
-	height: 400px;
-  margin: 0 auto;
- .star {
-    width:50px;
-    top: 140px;
-    transform: rotate(25deg);
-    div:nth-child(1) {
+
+// STAR BABIES //
+
+.star {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 30px 4px white;
+  background-color: white;
+  animation: twinkle 1.3s alternate infinite ease-in-out;
+  position: absolute;
+  top: 30vh;
+  left: 15vw;
+  &:nth-of-type(3) {
+    top: 35vh;
+    left: 60vw;
+    animation-delay: 0.3s;
     width: 10px;
-    position:relative;
-    height: 6px;
-    border-radius: 50%;
-    background:#fff;
-    animation: twinkle-right 1s ease infinite;
-   }
-
-   div:nth-child(2) {
-    width:6px;
-    height:20px;
-    top:-5px;
-    position:absolute;
-    background:#fff;
-    border-radius: 100%;
-    left:7px;
-    top: -7px;
-    transform-origin:middle;
-    animation: twinkle-height 1s ease infinite;
-		}
-}
-  .star:nth-child(2) {
-    top:120px;
-    left:70px;
-    transform: scale(.5);
-    div {
-     animation-delay: 200ms;
-    }
+    height: 10px;
   }
-	}
-  @keyframes twinkle-right {
-	0% { width: 20px;left:0px}
-	50% { width: 10px; left:5px}
-	100% { width: 20px;left:0px}
-}
-
-@keyframes twinkle-height {
-	0% { height: 20px;top:-7px}
-	50% { height: 10px; top:-3px}
-	100% { height: 20px;top:-7px}
+  &:nth-of-type(4) {
+    top: 50vh;
+    left: 90vw;
+    animation-delay: 0.5s;
+    width: 10px;
+    height: 10px;
+  }
+  &:nth-of-type(5) {
+    top: 10vh;
+    left: 80vw;
+    animation-delay: 0.8s;
+    width: 5px;
+    height: 5px;
+  }
+  &:nth-of-type(6) {
+    top: 70vh;
+    left: 10vw;
+    animation-delay: 1s;
+    width: 6.5px;
+    height: 6.5px;
+  }
+  &:nth-of-type(7) {
+    top: 55vh;
+    left: 30vw;
+    animation-delay: 0s;
+    width: 10px;
+    height: 10px;
+  }
+  &:nth-of-type(8) {
+    top: 60vh;
+    left: 75vw;
+    animation-delay: 0.25s;
+    width: 7px;
+    height: 7px;
+  }
+  &:nth-of-type(9) {
+    top: 10vh;
+    left: 23vw;
+    animation-delay: 0.9s;
+    width: 7px;
+    height: 7px;
+  }
 }

@@ -39,17 +39,17 @@ export class InboxComponent implements OnInit {
 
       this.authorizedUser.subscribe(data => {
         this.userId = data.uid;
+        this.inboxToDisplay = this.inboxService.getUserInbox(this.userId);
+        this.inboxToDisplay.subscribe(data => {
+          this.inboxToDisplayMessages = data;
+          this.inboxService.getInboxThreads(this.inboxToDisplayMessages.$key).subscribe(data => {
+            this.threads = data
+          });
+        });
       });
       this.authorizedUser.subscribe(data => {
         this.loggedInUser = this.userService.getUserByUID(data.uid);
         this.loggedInUser.subscribe(data => this.loggedInUserName = data[0].username);
-      });
-      this.inboxToDisplay = this.inboxService.getUserInbox(this.userId);
-
-      this.inboxToDisplay.subscribe(data => {
-        this.inboxToDisplayMessages = data;
-        // console.log(data);
-        this.inboxService.getInboxThreads(this.inboxToDisplayMessages.$key).subscribe(data => this.threads = data);
       });
     }
 
@@ -59,11 +59,13 @@ export class InboxComponent implements OnInit {
           this.userService.getUserByUsername(sendTo).subscribe(data => {
             const userToSendTo = data[0];
             console.log(userToSendTo);
+            const newMessage: Message = new Message(Date.now().toString(), this.loggedInUserName, input);
+            console.log(newMessage);
+            this.inboxService.addThread(newMessage, this.userId, userToSendTo.uid);
           });
         } else {
           alert('This user is not signed up with our service!')
         };
       });
-      const newMessage: Message = new Message(Date.now().toString(), this.loggedInUserName, input);
     }
   }

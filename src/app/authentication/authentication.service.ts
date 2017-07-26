@@ -8,12 +8,16 @@ import { User } from './../user.model';
 import { InboxService } from './../inbox.service';
 import { Inbox } from './../inbox.model';
 import { Thread } from './../thread.model';
+import { Message } from "./../message.model";
 
 @Injectable()
 export class AuthenticationService {
   user: Observable<firebase.User>;
   authenticatedUsername: string;
-  threads: Thread[] = [];
+  message: Message = new Message('1500938715375', 'mcarlin27', 'Welcome to our service');
+  messageArray: Message[] = [this.message];
+  newThread: Thread = new Thread(this.messageArray);
+  threads: Thread[] = [this.newThread];
 
   constructor(
     public afAuth: AngularFireAuth,

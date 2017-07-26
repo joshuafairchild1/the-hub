@@ -1,10 +1,11 @@
+<app-nav-bar></app-nav-bar>
+
 <h2>Inbox</h2>
 <div *ngFor="let thread of threads">
   <div *ngFor="let message of messages">
     <h3>{{message.userName}}, {{message.message}}</h3>
   </div>
 </div>
-
 <form>
   <label for="sendTo">Send To:</label>
   <input #sendTo>

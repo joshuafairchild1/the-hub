@@ -5,17 +5,21 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { User } from './../user.model';
-
+import { InboxService } from './../inbox.service';
+import { Inbox } from './../inbox.model';
+import { Thread } from './../thread.model';
 
 @Injectable()
 export class AuthenticationService {
   user: Observable<firebase.User>;
   authenticatedUsername: string;
+  threads: Thread[] = [];
 
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
-    public userService: UserService
+    public userService: UserService,
+    public inboxService: InboxService
   ) {
     this.user = afAuth.authState;
   }
@@ -23,22 +27,29 @@ export class AuthenticationService {
   login(): void {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
       .then(signedInUser => {
-        const username = signedInUser.additionalUserInfo.username;
-        this.authenticatedUsername = username;
-        this.userService.userExists(username).subscribe(user => {
-          if (!user) {
-            const newUser = new User(
-              signedInUser.user.displayName,
-              username,
-              signedInUser.user.email,
-              signedInUser.user.uid,
-              signedInUser.user.photoURL
-            );
+        if (signedInUser) {
 
-            this.userService.createUser(newUser);
-          }
-        });
-      });
+
+          const username = signedInUser.additionalUserInfo.username;
+          this.authenticatedUsername = username;
+          // console.log(this.authenticatedUsername)
+          this.userService.userExists(username).subscribe(user => {
+            if (!user) {
+              const newInbox = new Inbox(signedInUser.user.uid, this.threads);
+              this.inboxService.createInbox(newInbox);
+
+              const newUser = new User(
+                signedInUser.user.displayName,
+                username,
+                signedInUser.user.email,
+                signedInUser.user.uid,
+                signedInUser.user.photoURL
+              );
+              this.userService.createUser(newUser);
+            }
+          });
+        }
+      })
   }
 
   logout(): void {

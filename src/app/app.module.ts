@@ -22,6 +22,7 @@ import { MaxPagesService } from './github-service/max-pages.service';
 import { RouterModule } from '@angular/router';
 import { InboxComponent } from './inbox/inbox.component';
 import * as firebase from 'firebase';
+import { InboxService } from "./inbox.service";
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -56,7 +57,7 @@ firebase.initializeApp(firebaseConfig);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [UserService, AuthGuard, AuthenticationService, MaxPagesService],
+  providers: [UserService, AuthGuard, AuthenticationService, MaxPagesService, InboxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

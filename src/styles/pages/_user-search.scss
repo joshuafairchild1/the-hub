@@ -7,10 +7,11 @@
   border-radius: $radius;
   display: flex;
   flex-direction: column;
-  margin: 10vh auto;
+  margin: 5.2vh auto;
   width: 50%;
   max-width: 800px;
   .user-search {
+    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;

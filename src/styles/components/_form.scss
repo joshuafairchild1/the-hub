@@ -3,15 +3,21 @@ input {
   padding: 10px;
   border-radius: $radius;
   box-shadow: none;
-  border: 0;
+  border: 2px solid transparent;
   margin-bottom: $nudge;
   font-size: 20px;
-  // border: 1px solid #ccc;
   transition: all .3s ease-in-out;
+  font-family: $primary;
   &:hover {
-    background-color: darken($background-color, 5%);
+    // background-color: darken($background-color, 5%);
+    // background-color: lighten($pink, 58%);
+    opacity: 0.5;
+
   }
-  &:active, &:focus {
-    background-color: white;
+  &:focus {
+    // background-color: white;
+    // background-color: darken($background-color, 5%);
+    border: 2px solid $lighter-blue;
+    opacity: 1;
   }
 }

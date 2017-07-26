@@ -1,11 +1,12 @@
 <app-nav-bar></app-nav-bar>
 
+<h1>Search for a repository</h1>
+<!-- <div class="repo-wrapper"> -->
 <div class="search-wrapper">
   <div class="repo-search">
-    <h2>Search for a repository</h2>
     <input #username placeholder="Username" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
     <input #repo placeholder="Repo name" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
-    <button (click)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>Search</button>
+    <button class="top-left" (click)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>Search</button>
   </div>
 
   <div *ngIf='searchedRepo'>
@@ -74,3 +75,4 @@
     </div>
   </div>
 </div>
+<!-- </div> -->

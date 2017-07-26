@@ -23,14 +23,13 @@ import { Observable } from 'rxjs/Observable';
 
 export class ChatRoomDetailComponent implements OnInit {
   chatroomId: string;
-  chatRoomToDisplay;
-  chatRoomToDisplayMessages;
+  chatRoomToDisplay: FirebaseObjectObservable<any>;
+  chatRoomToDisplayMessages: any;
   messages: Message [];
-  theChatRoom;
   loggedInUser: FirebaseListObservable<any[]>;
   authorizedUser: Observable<firebase.User>;
   loggedInUserName: string;
-  chatrooms;
+  chatrooms: FirebaseListObservable<any[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,36 +41,40 @@ export class ChatRoomDetailComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe((urlParameters) => {
       this.chatroomId = urlParameters['id'];
+      console.log(this.chatroomId)
 
       this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
       this.chatRoomToDisplay.subscribe(data => {
         this.chatRoomToDisplayMessages = data;
-        // console.log(data);
         this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
       });
+
       this.authorizedUser = this.authService.user;
 
       this.authorizedUser.subscribe(data => {
         this.loggedInUser = this.userService.getUserByUID(data.uid);
         this.loggedInUser.subscribe(data => this.loggedInUserName = data[0].username);
       });
+
       this.chatrooms = this.chatroomService.chatrooms;
     });
   }
 
-  changeChatRoom(chatRoomToShowNow) {
+  changeChatRoom(chatRoomToShowNow): void {
     this.router.navigate([`/chatrooms/${chatRoomToShowNow.$key}`]);
   }
 
-  beginSending(input: string) {
-    let dateSent;
-    dateSent = Date.now();
-    console.log(dateSent);
-    const newMessage: Message = new Message(dateSent, this.loggedInUserName, input);
+  submitForm(name: string): void {
+    const newChatRoom: Chatroom = new Chatroom(name);
+    this.chatroomService.addChatRoom(newChatRoom);
+  }
+
+  beginSending(input: string): void {
+    const newMessage: Message = new Message(Date.now().toString(), this.loggedInUserName, input);
     this.chatroomService.addMessage(this.chatRoomToDisplayMessages, newMessage);
   }
 }

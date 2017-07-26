@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { UserService } from './user.service';
 import { AuthGuard } from './route-guards/auth-guard.service';
 import { AuthenticationService } from './authentication/authentication.service';
+import { MaxPagesService } from './github-service/max-pages.service';
 import { RouterModule } from '@angular/router';
 import { InboxComponent } from './inbox/inbox.component';
 import * as firebase from 'firebase';
@@ -55,7 +56,7 @@ firebase.initializeApp(firebaseConfig);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [UserService, AuthGuard, AuthenticationService],
+  providers: [UserService, AuthGuard, AuthenticationService, MaxPagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

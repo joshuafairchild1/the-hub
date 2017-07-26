@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { RepoData } from './../repo-data.model';
 import { Repo } from './../repo.model';
 import { Contributor } from './../contributor.model';
+import { MaxPagesService } from './max-pages.service';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -16,7 +17,8 @@ export class RepoLookupService {
   private repoSearchEndpoint = 'https://api.github.com/search/repositories';
 
   constructor(
-    private http: Http
+    private http: Http,
+    private pageService: MaxPagesService
   ) { }
 
   getRepoDetails(username: string, repoName: string): Observable<any> {
@@ -28,16 +30,10 @@ export class RepoLookupService {
     }
   }
 
-  callWithMaxPages(url: string): Observable<any> {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, `token ${oAuthToken}`);
-    return this.http.get(`${url}?per_page=100`);
-  }
-
   getRepos(repoName: string): Observable<any> {
     if (repoName) {
       const url = `${this.repoSearchEndpoint}?q=${repoName}+in:name`;
-      return this.callWithMaxPages(url);
+      return this.pageService.maxPages(url);
     }
   }
 
@@ -72,7 +68,7 @@ export class RepoLookupService {
       );
 
       const commmitsUrl = repo.commits_url.split('{')[0];
-      this.callWithMaxPages(commmitsUrl).subscribe(data => {
+      this.pageService.maxPages(commmitsUrl).subscribe(data => {
         const commits = data.json();
         searchedRepo.commitsNumber = commits.length;
 
@@ -82,7 +78,7 @@ export class RepoLookupService {
         }
       });
 
-      this.callWithMaxPages(repo.contributors_url).subscribe(data => {
+      this.pageService.maxPages(repo.contributors_url).subscribe(data => {
         searchedRepo.contributors = data.json().map(contributor => {
           const {login, html_url, avatar_url, contributions} = contributor;
           return new Contributor(login, html_url, avatar_url, contributions);

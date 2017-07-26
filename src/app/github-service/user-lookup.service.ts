@@ -4,6 +4,7 @@ import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
 import { UserData } from './../user-data.model';
 import { Repo } from './../repo.model';
+import { MaxPagesService } from './max-pages.service';
 import { getUniqueSelection } from './../../../node_modules/get-unique-selection';
 
 import 'rxjs/add/operator/catch';
@@ -15,7 +16,8 @@ export class UserLookupService {
   private userLookupEndpoint = 'https://api.github.com/users/';
 
   constructor(
-    private http: Http
+    private http: Http,
+    private pageService: MaxPagesService
   ) { }
 
   getUserDetails(username: string): Observable<Response> {
@@ -25,12 +27,6 @@ export class UserLookupService {
       const url = `${this.userLookupEndpoint}${username}`;
       return this.http.get(url);
     }
-  }
-
-  callWithMaxPages(url: string): Observable<Response> {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, `token ${oAuthToken}`);
-    return this.http.get(`${url}?per_page=100`);
   }
 
   generateUserData(userObservable: Observable<any>): Observable<UserData> {
@@ -53,7 +49,7 @@ export class UserLookupService {
         [] // array of starred repositories
       );
 
-      this.callWithMaxPages(user.repos_url).subscribe(data => {
+      this.pageService.maxPages(user.repos_url).subscribe(data => {
         const allRepos = data.json().map(repo => {
           return new Repo(
             repo.name,
@@ -71,7 +67,7 @@ export class UserLookupService {
       });
 
       const starsUrl = user.starred_url.split('{')[0];
-      this.callWithMaxPages(starsUrl).subscribe(data => {
+      this.pageService.maxPages(starsUrl).subscribe(data => {
         const starredRepos = data.json().map(repo => {
           return new Repo(
             repo.name,

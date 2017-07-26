@@ -36,9 +36,14 @@ export class RepoLookupService {
 
   getRepos(repoName: string): Observable<any> {
     if (repoName) {
-      const url = `?q=${repoName}+in:name`;
-      return this.http.get(`${this.repoSearchEndpoint}${url}`);
+      const url = `${this.repoSearchEndpoint}?q=${repoName}+in:name`;
+      return this.callWithMaxPages(url);
     }
+  }
+
+  getSampleRepositories(): Observable<Repo[]> {
+    const url = `${this.repoSearchEndpoint}?q=stars:>500&sort=stars&per_page=100`;
+    return this.generateRepoList(this.http.get(url));
   }
 
   generateRepoData(repoResponse: Observable<Response>): Observable<RepoData> {

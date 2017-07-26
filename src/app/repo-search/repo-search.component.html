@@ -63,4 +63,14 @@
       <button (click)='lookupRepo(repo.authorName, repo.repoName)'>View Details</button>
     </div>
   </div>
+  <div *ngIf='repoSample'>
+    <div *ngFor='let sampleRepo of repoSample'>
+      <img src="{{sampleRepo.authorAviUrl}}" class="avatar">
+      <p><a href="{{sampleRepo.authorUrl}}">{{sampleRepo.authorName}}</a>/<strong><a href="{{sampleRepo.repoUrl}}">{{sampleRepo.repoName}}</a></strong>
+        | {{sampleRepo.language}} | {{sampleRepo.stars}} stars |
+      <span *ngIf='sampleRepo.homepage'><a href="{{sampleRepo.homepage}}">Website</a></span></p>
+      <p *ngIf='sampleRepo.description'>{{sampleRepo.description}}</p>
+      <button (click)='lookupRepo(sampleRepo.authorName, sampleRepo.repoName)'>View Details</button>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AuthenticationService } from './../authentication/authentication.service';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./about.component.scss'],
   providers: [AuthenticationService]
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
   loggedInUser: firebase.User;
 
   constructor(

@@ -1,49 +1,69 @@
 @import "./../vendors/neat/neat";
 
+.chat-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .chat-container {
   @include grid-column(12);
-  background-color: $pink;
-  border: 5px solid black;
-  height: 80%;
   display: flex;
-  justify-content: flex-end;
-  max-width: 1500px;
+  max-width: 1000px;
+  height: 800px;
+  background-color: $pink;
+  border-radius: $radius;
+  box-shadow: $box-shadow;
 
   .chat-body {
     @include grid-column(10);
-    background-color: $background-color;
+    background-color: lighten($blue, 65%);
     height: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     overflow: auto;
     overflow-y: scroll;
-    #send {
-      width: 100%;
+    h2 {
+      font-size: 2.5em;
+      color: $blue;
+    }
+    h3 {
+      font-size: 1.25em;
+    }
+    .create-new-chat {
+      height: 100%;
       display: flex;
-      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    #send {
+      width: 95%;
+      margin: 0 auto;
       form {
-        width: 90%;
-        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
       }
       input {
-        width: 100%;
-        padding-right: 80px;
-      }
-      button {
-        position: absolute;
-        right: -100px;
-        top: 0;
-        width: 80px
+        width: 80%;
       }
     }
     .userNameAndMessage {
       font-size: 1.2em;
-      margin-left: 2%;
+      margin: .6% 2%;
+      strong {
+      color: $lighter-blue;
+      }
     }
     .timestamp {
-      font-size: .9em;
-      margin-left: 5%;
+      font-size: .775em;
+      margin-left: 2.5%;
+      font-style: italic;
+      opacity: 0.45;
     }
   }
   .chat-sidebar {
@@ -52,5 +72,36 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    background-color: $pink;
+    color: darken($white, 10%);
+    box-shadow: 10px 0 0 darken($pink, 10%);
+    overflow: auto;
+    h3 {
+      margin-top: $nudge;
+      text-align: center;
+      color: darken($white, 10%);
+    }
+    hr {
+      border-top: 5px solid $blue;
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+      width: 85%;
+      margin: 0 auto $nudge auto;
+    }
+    .chatroom-name {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      letter-spacing: $letter-spacing;
+      font-size: 1.1em;
+      padding-bottom: $nudge;
+      span {
+        // color: $blue;
+      }
+      &:hover {
+        color: $blue;
+        font-weight: bold;
+      }
+    }
   }
 }

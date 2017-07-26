@@ -2,6 +2,7 @@
 //// GLOBAL STYLES ////
 //////////////////////
 
+
 ::selection {
   background-color: hotpink;
   color: white;
@@ -29,37 +30,83 @@ h1, h2, h3, h4, h5, h6 {
   margin: 5px 0;
 }
 
-h1 {
+.animated-h1 {
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-shadow: 2px 2px 1px darken($blue, 10%);
   color: $white;
-  margin-top: 50px;
-  // position: relative;
-  // top: 0;
-  // left: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 470px;
+  height: 100px;
+  margin: 20px auto 0 auto;
+  // border: 5px solid red;
   &:before {
+    font-size: 20px;
     content: "\25CF";
+    text-shadow: 0 0 30px $white;
     position: absolute;
-    // top: 0;
-    // right:
-    animation: twinkle 2s infinite alternate ease;
+    left: 40px;
+    animation: twinkle 1.3s infinite alternate ease-in-out;
     transform-origin:middle;
-    // width: 8px;
-    // height: 8px;
-    // box-shadow: 1px 1px 10px 4px white;
-    // background-color: white;
-    // border-radius: 100%;
+  }
+  &:after {
+    font-size: 15px;
+    content: "\25CF";
+    text-shadow: 0 0 30px $white;
+    position: absolute;
+    left: 10px;
+    animation: twinkle 1.3s infinite alternate ease-in-out;
+    animation-delay: 0.6s;
+    transform-origin:middle;
   }
 }
 
+.star-wrapper {
+  @extend .animated-h1;
+  margin: 20px auto;
+  &:before {
+    font-size: 20px;
+    content: "\25CF";
+    text-shadow: 0 0 30px $white;
+    position: absolute;
+    left: 440px;
+    top: 0;
+    animation: twinkle 1.3s infinite alternate ease-in-out;
+    animation-delay: 0.8s;
+    transform-origin:middle;
+  }
+  &:after {
+    font-size: 15px;
+    content: "\25CF";
+    text-shadow: 0 0 30px $white;
+    position: absolute;
+    right: -355px;
+    top: 7px;
+    animation: twinkle 1.3s infinite alternate ease-in-out;
+    animation-delay: 0.3s;
+    transform-origin:middle;
+  }
+}
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+
+.chat-h1 {
+  margin: 50px 0;
+  text-align: center;
+  color: $white;
+}
 @keyframes twinkle {
   to {
     transform: scale(1);
   }
   from {
-    transform: scale(.2);
+    transform: scale(.5);
   }
 }
 

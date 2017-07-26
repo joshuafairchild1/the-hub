@@ -1,33 +1,40 @@
 <app-nav-bar></app-nav-bar>
-<h1>Hello {{loggedInUserName}}</h1>
-<h1 *ngIf='chatroomId'>IT's {{(chatRoomToDisplay | async)?.name}}</h1>
-<div class="chat-container">
-  <div class="chat-sidebar">
-    <div *ngFor="let chatroom of chatrooms | async">
-      <h3 (click)="changeChatRoom(chatroom)">{{chatroom.name}}</h3>
-    </div>
-  </div>
-  <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">
-    <div *ngIf='chatroomId'>
-      <div *ngFor="let message of messages">
-        <p class="userNameAndMessage"><strong>{{message.userName}}</strong>: {{message.message}}</p>
-        <p class="timestamp">{{message.timestamp | date: 'medium'}}</p>
+
+<div *ngIf = '!chatroomId' class="star-wrapper">
+  <h1 *ngIf = '!chatroomId' class="animated-h1 animated-h1-2">The Chat Room</h1>
+</div>
+
+<h1 *ngIf='chatroomId' class="chat-h1">{{(chatRoomToDisplay | async)?.name}}</h1>
+<div class="chat-wrapper">
+  <div class="chat-container">
+    <div class="chat-sidebar">
+      <h3>Current Channels</h3>
+      <hr>
+      <div *ngFor="let chatroom of chatrooms | async">
+        <p class="chatroom-name" (click)="changeChatRoom(chatroom)">{{chatroom.name}}</p>
       </div>
-      <p *ngIf='!messages.length'>Nobody has said anything in this chatroom yet.</p>
     </div>
-    <div *ngIf='chatroomId' id="send">
-      <form>
-        <input #input autocomplete="off"><button (click)="beginSending(input.value); input.value=''">Send</button>
-      </form>
-    </div>
-    <div *ngIf='!chatroomId'>
-      <h3>Select a chatroom to join on the left, or create a new one.</h3>
-      <div>
-        <h3>Create New ChatRoom</h3>
-        <label>Chat Room Name:</label>
-        <br>
-        <input #newName>
-        <button (click)="submitForm(newName.value); newName.value=''">Add</button>
+    <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">
+      <div *ngIf='chatroomId'>
+        <div *ngFor="let message of messages">
+          <p class="userNameAndMessage"><strong>{{message.userName}}</strong>: {{message.message}}</p>
+          <p class="timestamp">{{message.timestamp | date: 'medium'}}</p>
+        </div>
+        <p *ngIf='!messages.length'>Nobody has said anything in this chatroom yet.</p>
+      </div>
+      <div *ngIf='chatroomId' id="send">
+        <form>
+          <input #input autocomplete="off"><button class="top-left" (click)="beginSending(input.value); input.value=''">Send</button>
+        </form>
+      </div>
+      <div *ngIf='!chatroomId' class="create-new-chat">
+        <h2>Welcome, {{loggedInUserName}} 👽✌️</h2>
+        <h3>Select a chat room to join on the left, or create a new one.</h3>
+        <div>
+          <h3>Create New Chat Room:</h3>
+          <input #newName>
+          <button (click)="submitForm(newName.value); newName.value=''">Add</button>
+        </div>
       </div>
     </div>
   </div>

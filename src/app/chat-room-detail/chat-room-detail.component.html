@@ -1,5 +1,6 @@
 <app-nav-bar></app-nav-bar>
 
+
 <div *ngIf = '!chatroomId' class="star-wrapper">
   <h1 *ngIf = '!chatroomId' class="animated-h1 animated-h1-2">The Chat Room</h1>
 </div>
@@ -13,7 +14,13 @@
       <div *ngFor="let chatroom of chatrooms | async">
         <p class="chatroom-name" (click)="changeChatRoom(chatroom)">{{chatroom.name}}</p>
       </div>
+    <div *ngIf='chatroomId'>
+      <h2>Currently in this chatroom:</h2>
+      <div *ngFor='let user of chatroomUsers | async'>
+        <h3>{{user.username}}</h3>
+      </div>
     </div>
+  </div>
     <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">
       <div *ngIf='chatroomId'>
         <div *ngFor="let message of messages">

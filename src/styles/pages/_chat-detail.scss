@@ -71,6 +71,7 @@
     width: 20%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex-wrap: nowrap;
     background-color: $pink;
     color: darken($white, 10%);

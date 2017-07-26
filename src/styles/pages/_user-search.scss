@@ -29,6 +29,10 @@
     @extend .avatar;
     width: 125px;
   }
+  h2 {
+    text-align: center;
+    margin-bottom: $nudge;
+  }
   a {
     color: $pink;
     font-size: 1em;

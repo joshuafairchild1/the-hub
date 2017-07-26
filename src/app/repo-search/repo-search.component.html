@@ -67,6 +67,7 @@
   </div>
   <div class="repo-container">
     <div *ngIf='repoSample'>
+      <h2>Popular Random Repositories</h2>
       <div *ngFor='let sampleRepo of repoSample' class="repo-info">
         <img src="{{sampleRepo.authorAviUrl}}" class="avatar">
         <button (click)='lookupRepo(sampleRepo.authorName, sampleRepo.repoName)'>View Details</button>

@@ -36,6 +36,31 @@ h1 {
   text-shadow: 2px 2px 1px darken($blue, 10%);
   color: $white;
   margin-top: 50px;
+  // position: relative;
+  // top: 0;
+  // left: 0;
+  &:before {
+    content: "\25CF";
+    position: absolute;
+    // top: 0;
+    // right:
+    animation: twinkle 2s infinite alternate ease;
+    transform-origin:middle;
+    // width: 8px;
+    // height: 8px;
+    // box-shadow: 1px 1px 10px 4px white;
+    // background-color: white;
+    // border-radius: 100%;
+  }
+}
+
+@keyframes twinkle {
+  to {
+    transform: scale(1);
+  }
+  from {
+    transform: scale(.2);
+  }
 }
 
 hr {

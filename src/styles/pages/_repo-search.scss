@@ -12,3 +12,37 @@
     display: block;
   }
 }
+
+
+// RANDOM REPOS //
+ .repo-container {
+   background-color: $background-color;
+   width: 80%;
+   @include grid-column(12);
+   font-size: .7em;
+   .repo-info{
+     background-color: darken($background-color, 10%);
+      @include grid-column(6);
+      height: 500px;
+      box-shadow: 1px 3px 5px 1px $blue;
+      margin-bottom: 20px;
+      border-radius: $radius;
+      #project-detail {
+        text-align: center;
+        width: 75%;
+        margin: $nudge auto;
+      }
+      button {
+        margin: $nudge auto;
+        display: block;
+      }
+      img {
+        width: 200px;
+      }
+   }
+ }
+
+ #popular-repo-description {
+   width: 90%;
+   margin: 0 auto;
+ }

@@ -13,7 +13,6 @@
   background-color: $pink;
   border-radius: $radius;
   box-shadow: $box-shadow;
-
   .chat-body {
     @include grid-column(10);
     background-color: lighten($blue, 65%);
@@ -77,6 +76,9 @@
     color: darken($white, 10%);
     box-shadow: 10px 0 0 darken($pink, 10%);
     overflow: auto;
+    padding-right: 20px;
+    font-size: 0.9em;
+
     h3 {
       margin-top: $nudge;
       text-align: center;
@@ -97,7 +99,12 @@
       font-size: 1.1em;
       padding-bottom: $nudge;
       span {
-        // color: $blue;
+        cursor: auto;
+        &:hover {
+          &:after {
+            content: " 👽";
+          }
+        }
       }
       &:hover {
         color: $blue;

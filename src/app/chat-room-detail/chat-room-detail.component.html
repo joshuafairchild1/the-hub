@@ -3,8 +3,10 @@
 <h1 *ngIf='chatroomId'>IT's {{(chatRoomToDisplay | async)?.name}}</h1>
 <div class="chat-container">
   <div class="chat-sidebar">
-    <div *ngFor="let chatroom of chatrooms | async">
-      <h3 (click)="changeChatRoom(chatroom)">{{chatroom.name}}</h3>
+    <div>
+      <div *ngFor="let chatroom of chatrooms | async">
+        <h3 (click)="changeChatRoom(chatroom)">{{chatroom.name}}</h3>
+      </div>
     </div>
     <div *ngIf='chatroomId'>
       <h2>Currently in this chatroom:</h2>

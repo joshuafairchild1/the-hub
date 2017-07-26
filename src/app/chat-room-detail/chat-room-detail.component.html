@@ -27,7 +27,7 @@
           <p class="userNameAndMessage"><strong>{{message.userName}}</strong>: {{message.message}}</p>
           <p class="timestamp">{{message.timestamp | date: 'medium'}}</p>
         </div>
-        <p *ngIf='!messages.length'>Nobody has said anything in this chatroom yet.</p>
+        <p *ngIf='messages&&!messages.length'>Nobody has said anything in this chatroom yet.</p>
       </div>
       <div *ngIf='chatroomId' id="send">
         <form>

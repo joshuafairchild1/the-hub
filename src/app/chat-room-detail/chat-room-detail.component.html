@@ -6,6 +6,12 @@
     <div *ngFor="let chatroom of chatrooms | async">
       <h3 (click)="changeChatRoom(chatroom)">{{chatroom.name}}</h3>
     </div>
+    <div *ngIf='chatroomId'>
+      <h2>Currently in this chatroom:</h2>
+      <div *ngFor='let user of chatroomUsers | async'>
+        <h3>{{user.username}}</h3>
+      </div>
+    </div>
   </div>
   <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">
     <div *ngIf='chatroomId'>
@@ -13,7 +19,7 @@
         <p class="userNameAndMessage"><strong>{{message.userName}}</strong>: {{message.message}}</p>
         <p class="timestamp">{{message.timestamp | date: 'medium'}}</p>
       </div>
-      <p *ngIf='!messages.length'>Nobody has said anything in this chatroom yet.</p>
+      <p *ngIf='messages&&!messages.length'>Nobody has said anything in this chatroom yet.</p>
     </div>
     <div *ngIf='chatroomId' id="send">
       <form>

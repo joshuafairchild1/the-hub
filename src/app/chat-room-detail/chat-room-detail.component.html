@@ -20,6 +20,11 @@
         <h3>{{user.username}}</h3>
       </div>
     </div>
+    <div>
+      <h3>Create New Chat Room:</h3>
+      <input #newName>
+      <button (click)="submitForm(newName.value); newName.value=''">Add</button>
+    </div>
   </div>
     <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">
       <div *ngIf='chatroomId'>

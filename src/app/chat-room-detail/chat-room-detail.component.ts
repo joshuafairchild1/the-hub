@@ -74,10 +74,10 @@ export class ChatRoomDetailComponent {
   }
 
   changeChatRoom(selectedChatroom: any): void {
-    // this.chatroomService.leaveChatroom(this.loggedInUserName, this.chatroomId);
-    // this.chatroomService.joinChatRoom(this.loggedInUserName, selectedChatroom.$key);
     this.sub.unsubscribe();
     this.router.navigate([`/chatrooms/${selectedChatroom.$key}`]);
+    // this.chatroomService.leaveChatroom(this.loggedInUserName, this.chatroomId);
+    // this.chatroomService.joinChatRoom(this.loggedInUserName, selectedChatroom.$key);
   }
 
   submitForm(name: string): void {

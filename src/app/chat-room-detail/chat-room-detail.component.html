@@ -15,10 +15,10 @@
         <p class="chatroom-name" (click)="changeChatRoom(chatroom)">{{chatroom.name}}</p>
       </div>
       <div *ngIf='chatroomId'>
-        <h2>Currently in this chatroom:</h2>
+        <!-- <h2>Currently in this chatroom:</h2>
         <div *ngFor='let user of chatroomUsers | async'>
           <h3>{{user.username}}</h3>
-        </div>
+        </div> -->
         <hr>
         <h3>Create New Chat Room:</h3>
         <input  #newName>

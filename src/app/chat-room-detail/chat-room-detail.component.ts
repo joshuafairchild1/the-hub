@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs/Subscription';
   ]
 })
 
-export class ChatRoomDetailComponent {
+export class ChatRoomDetailComponent implements OnInit {
   chatRoomToDisplay: FirebaseObjectObservable<any>;
   loggedInUser: FirebaseListObservable<any[]>;
   chatrooms: FirebaseListObservable<any[]>;
@@ -56,8 +56,8 @@ export class ChatRoomDetailComponent {
       this.chatRoomToDisplay.subscribe(data => {
         this.chatRoomToDisplayMessages = data;
         this.sub = this.chatroomService.getChatRoomMessages(data.$key).subscribe(data => {
-          this.messages = data
-          console.log('hello')
+          this.messages = data;
+          console.log('hello');
         });
       });
 

@@ -22,7 +22,7 @@ import { Observable } from 'rxjs/Observable';
 export class InboxComponent implements OnInit {
   inboxToDisplay;
   inboxToDisplayMessages;
-  loggedInUser: FirebaseListObservable<any[]>
+  loggedInUser: FirebaseListObservable<any[]>;
   authorizedUser: Observable<firebase.User>;
   userId;
   loggedInUserName: string;
@@ -43,7 +43,7 @@ export class InboxComponent implements OnInit {
         this.inboxToDisplay.subscribe(data => {
           this.inboxToDisplayMessages = data;
           this.inboxService.getInboxThreads(this.inboxToDisplayMessages.$key).subscribe(data => {
-            this.threads = data
+            this.threads = data;
           });
         });
       });
@@ -64,7 +64,7 @@ export class InboxComponent implements OnInit {
             this.inboxService.addThread(newMessage, this.userId, userToSendTo.uid);
           });
         } else {
-          alert('This user is not signed up with our service!')
+          alert('This user is not signed up with our service!');
         };
       });
     }

@@ -50,7 +50,7 @@ export class AuthenticationService {
             }
           });
         }
-      })
+      });
   }
 
   logout(): void {

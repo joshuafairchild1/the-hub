@@ -19,7 +19,7 @@
         <h2><a href="{{searchedRepo.repoURL}}">{{searchedRepo.repoName}}</a></h2>
         <h3>Created by: <a href="{{searchedRepo.userURL}}">{{searchedRepo.createdBy}}</a></h3>
         <h4>Description: {{searchedRepo.description}}</h4>
-        <p>Clone me: {{searchedRepo.cloneURL}}</p>
+        <p><strong>Clone me:</strong> {{searchedRepo.cloneURL}}</p>
         <hr>
       </div>
       <div class="searched-secondary">
@@ -50,11 +50,11 @@
             <p><em>{{commit.name}}</em> | <em>{{commit.date | date}}</em></p>
           </div>
         </div>
-        <h3>Contributors:</h3>
+        <h3><strong>Contributors:</strong></h3>
         <div *ngFor='let contributor of searchedRepo.contributors'>
           <img src="{{contributor.avatarUrl}}" class="avatar-sm"/>
-          <h3><a href="{{contributor.ghUrl}}">{{contributor.username}}</a></h3>
-          <p><strong>Contributions: {{contributor.contributions}}</strong></p>
+          <h3 class="contributor-info"><a href="{{contributor.ghUrl}}">{{contributor.username}}</a></h3>
+          <p class="contributor-info"><strong>Contributions: {{contributor.contributions}}</strong></p>
         </div>
       </div>
     </div>

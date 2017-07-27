@@ -21,41 +21,45 @@ Description coming soon &#128175;
 ![](./src/assets/images/chatroom.png)
 
 
-<!-- ## Planning
+## Planning
 
 ### 1. Configuration/dependencies
-  The app will primarily use Angular 4, the AngularCLI, Firebase database, and Typescript. It was made with what I learned from week 3 in the JavaScript track at Epicodus.
+  The app will primarily use Angular 4, the AngularCLI, Firebase database, and Typescript. The app provides an improved Github user experience, including deeper search capabilities and user chatrooms.
 
   Stretch goals include:
-    * Host the site live
+    * Chrome Extension
+    * 404 Page Design
+    * Custom Sorting
+    * Google Maps Integration
+    * D3.js
 
 ### 2. User Stories
-  * As a user, I'd like to visit a page to see a list of all team or club members.
-  * As a user, I'd like to click a team or club member's entry in the list to visit their profile page, which should include more details about them.
-  * As a user, I'd like the option to visit an "About" page that explains what the club is, and what they do.
+  * As a user, I'd like to be able to search for a github user via username.
+  * As a user, I'd like to search for a certain repository.
+  * As a user, I'd like the option to visit an "About" page that explains who worked on this app.
   * As a user, I'd like all data persisted in a database, so it's always there when I need it.
-  * As a user, I'd like to filter the list of users by their particular role in the group, or some other information/category. (For instance, a club may have a treasurer, president, and/or secretary. A sports team may have a goalie, forward, or striker, a book club may have founders and attendees. You're also welcome to filter by something other than role, if it's more relevant to your project.)
-  * As an administrator, I want to add new users to the club. (User authentication is not required).
-  * As an administrator, I want to edit user profiles, in case I make a mistake, or need to update their details.
-  * As an administrator, need the option to delete a user, in case they leave the club or team.
+  * As a user, I would like to visit a chat page and chat with other Github users collectively.
+  * As a user, I would like to create a new chatroom for others to join.
+
 
 ### 3. Integration
-  * Root component/Index page.
-  * Contact page
+  * Root component/Index page
   * About page
-  * List members page.
-  * Admin page with CRUD functionality for members
+  * Search for users page
+  * Search by repositories
+  * Chat room page
 
 ### 4. UX/UI
   * Sass
+  * Adobe Illustrator
 
 ### 5. Polish
-  * Refactor code.
-  * Delete unused code. -->
+  * Refactor code
+  * Delete unused code
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+You will need the following properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)

@@ -13,7 +13,6 @@ export class InboxService {
 
   createInbox(newInbox: Inbox): void {
     this.database.list(`inboxes`).push(newInbox);
-    console.log('hello');
   }
 
   getUserInbox(userId: string) {
@@ -42,18 +41,18 @@ export class InboxService {
     let newMessageArray: Message[] = [];
     newMessageArray.push(newMessage);
     const newThread: Thread = new Thread(newMessageArray);
-    var newInboxThreads;
+    var newInboxThreads: Thread[] = [];
     var newInbox;
     var inboxRef = this.database.list('inboxes');
     inboxRef.forEach((key) => {
       key.forEach((subkey) => {
         if (subkey.senderId === senderId) {
           newInboxThreads = subkey.threads;
-          console.log(newInboxThreads);
           newInbox = this.getInboxById(subkey.$key);
+          // console.log(newInbox);
         }
         newInboxThreads.push(newThread);
-        newInbox.update({threads: newInboxThreads});
+        // newInbox.update({threads: newInboxThreads});
         console.log(newInbox);
         const inboxEntryInFirebase = this.getUserInbox(senderId);
         // inboxEntryInFirebase.remove();

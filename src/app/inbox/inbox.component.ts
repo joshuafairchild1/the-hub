@@ -27,6 +27,7 @@ export class InboxComponent implements OnInit {
   userId;
   loggedInUserName: string;
   threads: Thread[];
+  messages: Message[] = [];
 
   constructor(
     private inboxService: InboxService,
@@ -42,9 +43,17 @@ export class InboxComponent implements OnInit {
         this.inboxToDisplay = this.inboxService.getUserInbox(this.userId);
         this.inboxToDisplay.subscribe(data => {
           this.inboxToDisplayMessages = data;
-          this.inboxService.getInboxThreads(this.inboxToDisplayMessages.$key).subscribe(data => {
+          this.inboxService.getInboxThreads(this.inboxToDisplayMessages[0].$key).subscribe(data => {
             this.threads = data
+            console.log(this.threads);
+            this.threads.forEach(thread => {
+              thread.messages.forEach(message => {
+                console.log(message);
+                this.messages.push(message);
+              });
+            });
           });
+
         });
       });
       this.authorizedUser.subscribe(data => {
@@ -58,9 +67,9 @@ export class InboxComponent implements OnInit {
         if (bool) {
           this.userService.getUserByUsername(sendTo).subscribe(data => {
             const userToSendTo = data[0];
-            console.log(userToSendTo);
+            // console.log(userToSendTo);
             const newMessage: Message = new Message(Date.now().toString(), this.loggedInUserName, input);
-            console.log(newMessage);
+            // console.log(newMessage);
             this.inboxService.addThread(newMessage, this.userId, userToSendTo.uid);
           });
         } else {

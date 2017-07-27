@@ -46,3 +46,10 @@
    width: 90%;
    margin: 0 auto;
  }
+
+ .commits {
+   background-color: lighten($lighter-blue, 52%);
+   padding: 15px 20px;
+   margin-bottom: $nudge;
+   border-radius: $radius;
+ }

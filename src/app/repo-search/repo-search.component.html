@@ -45,8 +45,10 @@
       <div class="results-wrapper">
         <h3><strong>Last 5 commits:</strong></h3>
         <div *ngFor='let commit of searchedRepo.commits'>
-          <p><strong>Message:</strong> {{commit.message}}</p>
-          <p><em>{{commit.name}}</em> | <em>{{commit.date | date}}</em></p>
+          <div class="commits">
+            <p><strong>Message:</strong> {{commit.message}}</p>
+            <p><em>{{commit.name}}</em> | <em>{{commit.date | date}}</em></p>
+          </div>
         </div>
         <h3>Contributors:</h3>
         <div *ngFor='let contributor of searchedRepo.contributors'>

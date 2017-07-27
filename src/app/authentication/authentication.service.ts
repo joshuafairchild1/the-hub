@@ -14,10 +14,10 @@ import { Message } from "./../message.model";
 export class AuthenticationService {
   user: Observable<firebase.User>;
   authenticatedUsername: string;
-  message: Message = new Message('1500938715375', 'mcarlin27', 'Welcome to our service');
-  messageArray: Message[] = [this.message];
-  newThread: Thread = new Thread(this.messageArray);
-  threads: Thread[] = [this.newThread];
+  // message: Message = new Message('1500938715375', 'mcarlin27', 'Welcome to our service');
+  // messageArray: Message[] = [this.message];
+  // newThread: Thread = new Thread(this.messageArray);
+  // threads: Thread[] = [this.newThread];
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -32,15 +32,12 @@ export class AuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
       .then(signedInUser => {
         if (signedInUser) {
-
-
           const username = signedInUser.additionalUserInfo.username;
           this.authenticatedUsername = username;
-          // console.log(this.authenticatedUsername)
           this.userService.userExists(username).subscribe(user => {
             if (!user) {
-              const newInbox = new Inbox(signedInUser.user.uid, this.threads);
-              this.inboxService.createInbox(newInbox);
+              // const newInbox = new Inbox(signedInUser.user.uid, this.threads);
+              // this.inboxService.createInbox(newInbox);
 
               const newUser = new User(
                 signedInUser.user.displayName,

@@ -54,7 +54,7 @@ export class ChatRoomDetailComponent {
       this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
       this.chatRoomToDisplay.subscribe(data => {
-        // this.chatRoomToDisplayMessages = data;
+        this.chatRoomToDisplayMessages = data;
         this.sub = this.chatroomService.getChatRoomMessages(data.$key).subscribe(data => {
           this.messages = data
           console.log('hello')

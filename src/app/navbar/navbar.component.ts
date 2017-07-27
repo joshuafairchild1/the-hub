@@ -18,17 +18,22 @@ export class NavbarComponent {
     private authService: AuthenticationService,
     private userService: UserService
   ) {
-    this.authService.user.subscribe(data => {
-      if (data) {
-        this.userService.getUserByUID(data.uid).subscribe(data => {
-          this.githubUsername = data[0].username;
-        });
-      }
-    });
   }
 
   logout(): void {
     this.authService.logout();
+  }
+
+  ngOnInit(): void {
+    this.authService.user.subscribe(data => {
+      if (data) {
+        this.userService.getUserByUID(data.uid).subscribe(data => {
+          if (data.length) {
+            this.githubUsername = data[0].username;
+          }
+        });
+      }
+    });
   }
 
 }

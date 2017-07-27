@@ -17,7 +17,8 @@
     <div class="landing-zindex">
     <!--NAVIGATION-->
     <div class="nav-container">
-      <h2>The Hub provides an improved Github user experience, including deeper search capabilities and user chatrooms.</h2>
+      <h2 *ngIf='!loggedIn'>The Hub provides an improved Github user experience, including deeper search capabilities and user chatrooms.</h2>
+      <h2 *ngIf='loggedIn' class="welcome-login">Welcome to The Hub</h2>
 
       <!-- <i class="fa fa-rocket placeholder" aria-hidden="true"></i> -->
     <div class="planet-container">

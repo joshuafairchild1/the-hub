@@ -20,4 +20,8 @@ export class AboutComponent implements OnInit {
     this.authService.user.subscribe(data => this.loggedInUser = data);
   }
 
+  login() {
+    this.authService.login();
+  }
+
 }

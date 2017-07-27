@@ -34,6 +34,7 @@ nav {
           font-style: italic;
         }
         a {
+          font-size: inherit;
           color: $white;
           padding-bottom: $nudge;
           border-bottom: 3px solid $pink;
@@ -64,4 +65,10 @@ nav {
 .center {
   // color: red;
   font-family: $logo;
+}
+
+/// Navigation when not logged in
+
+#right-nav-not-logged-in {
+  font-size: 30px;
 }

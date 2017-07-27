@@ -274,3 +274,11 @@
     height: 7px;
   }
 }
+
+
+// MEDIA QUERIES //
+#test {
+  @include xs-breakpoint {
+   font-size: 20px;
+  }
+}

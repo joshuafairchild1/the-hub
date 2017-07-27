@@ -223,14 +223,14 @@
   border-radius: 50%;
   box-shadow: 1px 1px 30px 4px white;
   background-color: white;
-  animation: twinkle 1.3s alternate infinite ease-in-out;
+  animation: twinkle 1.1s alternate infinite ease-in-out;
   position: absolute;
   top: 30vh;
   left: 15vw;
   &:nth-of-type(3) {
     top: 35vh;
-    left: 60vw;
-    animation-delay: 0.3s;
+    left: 70vw;
+    animation-delay: 0.7s;
     width: 10px;
     height: 10px;
   }
@@ -280,8 +280,9 @@
 
 
 // MEDIA QUERIES //
-#test {
+
+h2 {
   @include xs-breakpoint {
-   font-size: 20px;
+   font-size: 26px !important;
   }
 }

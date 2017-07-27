@@ -20,9 +20,8 @@ import { AuthGuard } from './route-guards/auth-guard.service';
 import { AuthenticationService } from './authentication/authentication.service';
 import { MaxPagesService } from './github-service/max-pages.service';
 import { RouterModule } from '@angular/router';
-import { InboxComponent } from './inbox/inbox.component';
 import * as firebase from 'firebase';
-import { InboxService } from './inbox.service';
+// import { InboxService } from './inbox.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -45,7 +44,7 @@ firebase.initializeApp(firebaseConfig);
     UserSearchComponent,
     RepoSearchComponent,
     AboutComponent,
-    InboxComponent
+    // InboxComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +56,7 @@ firebase.initializeApp(firebaseConfig);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [UserService, AuthGuard, AuthenticationService, MaxPagesService, InboxService],
+  providers: [UserService, AuthGuard, AuthenticationService, MaxPagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

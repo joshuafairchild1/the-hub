@@ -5,7 +5,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
 import { AboutComponent } from './about/about.component';
-import { InboxComponent } from "./inbox/inbox.component";
 import { AuthGuard } from './route-guards/auth-guard.service';
 
 const appRoutes: Routes = [

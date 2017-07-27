@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { User } from './../user.model';
-import { InboxService } from './../inbox.service';
+// import { InboxService } from './../inbox.service';
 import { Inbox } from './../inbox.model';
 import { Thread } from './../thread.model';
 import { Message } from "./../message.model";
@@ -23,7 +23,7 @@ export class AuthenticationService {
     public afAuth: AngularFireAuth,
     public router: Router,
     public userService: UserService,
-    public inboxService: InboxService
+    // public inboxService: InboxService
   ) {
     this.user = afAuth.authState;
   }

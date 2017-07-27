@@ -1,3 +1,5 @@
+// MEDIA QUERY MIXINS //
+
 @mixin xs-breakpoint {
   @media #{$xs-breakpoint} {
     @content;

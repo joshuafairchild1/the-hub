@@ -65,6 +65,7 @@ nav {
 }
 
 // Landing page when not logged in
+
 .left a, .right a {
   color: $white;
   padding-bottom: $nudge;
@@ -84,4 +85,18 @@ nav {
 
 #right-nav-not-logged-in {
   font-size: 30px;
+}
+
+// MAIN NAVBAR //
+
+nav li {
+  padding-right: 20px;
+}
+
+.left-nav li {
+font-size: 25px;
+}
+
+.right-nav li {
+font-size: 20px;
 }

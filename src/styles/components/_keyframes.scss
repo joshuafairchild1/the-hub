@@ -1,0 +1,41 @@
+// ANIMATION FOR WAVES ON LANDING PAGE //
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100vw;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+
+// ANIMATIONS FOR PLANET ON LANDING PAGE //
+
+@keyframes bounce {
+  to {
+    transform: translateY(15px);
+  }
+  from {
+    transform: translateY(-5px);
+  }
+}
+
+// ANIMATIONS FOR STARS
+
+@keyframes twinkle {
+  to {
+    transform: scale(1);
+  }
+  from {
+    transform: scale(.5);
+  }
+}

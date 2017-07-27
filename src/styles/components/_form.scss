@@ -9,14 +9,10 @@ input {
   transition: all .3s ease-in-out;
   font-family: $primary;
   &:hover {
-    // background-color: darken($background-color, 5%);
-    // background-color: lighten($pink, 58%);
     opacity: 0.5;
 
   }
   &:focus {
-    // background-color: white;
-    // background-color: darken($background-color, 5%);
     border: 2px solid $lighter-blue;
     opacity: 1;
   }

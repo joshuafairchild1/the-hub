@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
 import { AuthenticationService } from './../authentication/authentication.service';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-chat-room-detail',
@@ -21,7 +22,7 @@ import { Observable } from 'rxjs/Observable';
   ]
 })
 
-export class ChatRoomDetailComponent implements OnInit {
+export class ChatRoomDetailComponent {
   chatRoomToDisplay: FirebaseObjectObservable<any>;
   loggedInUser: FirebaseListObservable<any[]>;
   chatrooms: FirebaseListObservable<any[]>;
@@ -31,6 +32,7 @@ export class ChatRoomDetailComponent implements OnInit {
   chatRoomToDisplayMessages: any;
   loggedInUserName: string;
   chatroomId: string;
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +45,7 @@ export class ChatRoomDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.sub =
     this.route.params.subscribe((urlParameters) => {
       this.chatroomId = urlParameters['id'];
 
@@ -51,8 +54,11 @@ export class ChatRoomDetailComponent implements OnInit {
       this.chatRoomToDisplay = this.chatroomService.getChatRoomById(this.chatroomId);
 
       this.chatRoomToDisplay.subscribe(data => {
-        this.chatRoomToDisplayMessages = data;
-        this.chatroomService.getChatRoomMessages(this.chatRoomToDisplayMessages.$key).subscribe(data => this.messages = data);
+        // this.chatRoomToDisplayMessages = data;
+        this.sub = this.chatroomService.getChatRoomMessages(data.$key).subscribe(data => {
+          this.messages = data
+          console.log('hello')
+        });
       });
 
       this.authorizedUser = this.authService.user;
@@ -64,11 +70,13 @@ export class ChatRoomDetailComponent implements OnInit {
 
       this.chatrooms = this.chatroomService.chatrooms;
     });
+
   }
 
   changeChatRoom(selectedChatroom: any): void {
     this.chatroomService.leaveChatroom(this.loggedInUserName, this.chatroomId);
     this.chatroomService.joinChatRoom(this.loggedInUserName, selectedChatroom.$key);
+    this.sub.unsubscribe();
     this.router.navigate([`/chatrooms/${selectedChatroom.$key}`]);
   }
 

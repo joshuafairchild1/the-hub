@@ -1,22 +1,32 @@
 # The Hub
 ### Arianna Chau, Rose Sponseller, Marilyn Carlin and Joshua Fairchild, July 19th - 27th, 2017
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://github.com/ariannachau/week3)
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://github.com/joshuafairchild1/the-hub)
 
 Description coming soon &#128175;
 
-<!-- ## Landing Page: -->
-<!-- ![](./src/assets/images/welcome.png) -->
+## Landing Page:
+![](./src/assets/images/landing.gif)
 
-<!-- ## About Page: -->
-<!-- ![](./src/assets/images/about.png) -->
+## About Page:
+![](./src/assets/images/about.png)
 
-<!-- ## Members Page: -->
-<!-- ![](./src/assets/images/members.png) -->
+## Search User Page:
+![](./src/assets/images/usersearch.png)
+
+## Search Repositories Page:
+![](./src/assets/images/searchrepo.png)
+
+## Chat Room Page:
+![](./src/assets/images/createchat.png)
+![](./src/assets/images/chatroom.png)
+
 
 <!-- ## Planning
 
 ### 1. Configuration/dependencies
-  The app will primarily use Angular 4, the AngularCLI, Firebase database, and Typescript. It was made with what I learned from week 3 in the JavaScript track at Epicodus. Stretch goals include:
+  The app will primarily use Angular 4, the AngularCLI, Firebase database, and Typescript. It was made with what I learned from week 3 in the JavaScript track at Epicodus.
+
+  Stretch goals include:
     * Host the site live
 
 ### 2. User Stories

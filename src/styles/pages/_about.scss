@@ -65,5 +65,11 @@
         color: $lighter-blue;
       }
     }
+    @include xs-breakpoint {
+      @include grid-column(12);
+    }
+    @include small-breakpoint {
+      @include grid-column(12);
+    }
   }
 }

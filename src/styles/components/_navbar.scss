@@ -25,13 +25,23 @@ nav {
         opacity: 0.7;
       }
     }
+    @include xs-breakpoint {
+      display: none;
+    }
+   @include  small-breakpoint {
+     display: none;
+   }
   }
+
   .right-nav {
     ul {
       li {
         span {
           color: $green;
           font-style: italic;
+          @include xs-breakpoint {
+            font-size: 14px !important;
+          }
         }
         a {
           font-size: inherit;
@@ -44,6 +54,10 @@ nav {
             border-bottom: 3px solid $green;
             color: $pink;
           }
+         @include xs-breakpoint {
+           font-size: 12px !important;
+           border-bottom: none;
+         }
         }
       }
     }
@@ -63,7 +77,6 @@ nav {
 }
 
 .center {
-  // color: red;
   font-family: $logo;
 }
 

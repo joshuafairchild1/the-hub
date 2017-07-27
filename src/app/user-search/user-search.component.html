@@ -49,7 +49,7 @@
           <p *ngIf='repo.description' class="description">{{repo.description}}</p>
         </li>
         <br>
-        <p class="starred-title"><strong>Selected starred repositories:</strong> </p>
+        <p *ngIf='searchedUser.starredRepos.length' class="starred-title"><strong>Selected starred repositories:</strong></p>
       </ul>
       <br>
       <!--STARRED REPOS-->

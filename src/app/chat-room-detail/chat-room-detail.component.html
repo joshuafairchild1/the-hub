@@ -19,10 +19,12 @@
         <div *ngFor='let user of chatroomUsers | async'>
           <h3>{{user.username}}</h3>
         </div> -->
+        <h3>Create New Chat:</h3>
         <hr>
-        <h3>Create New Chat Room:</h3>
-        <input  #newName>
-        <button (click)="submitForm(newName.value); newName.value=''">Add</button>
+        <div class="sidebar-new-chat-wrapper">
+          <input  #newName class="sidebar-new-chat">
+          <button class="top-left sidebar-button" (click)="submitForm(newName.value); newName.value=''">Add</button>
+        </div>
       </div>
     </div>
     <div class="chat-body" #chatBody [scrollTop]="chatBody.scrollHeight">

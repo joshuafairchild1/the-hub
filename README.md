@@ -63,7 +63,7 @@ Description coming soon &#128175;
 
 ## Prerequisites
 
-You will need the following properly installed on your computer.
+You will need the following software properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)
@@ -121,7 +121,7 @@ Now that everything you need should be installed and setup, you can start the se
 
 * Angular 4
 * Angular CLI v1.0.0
-* [GitHub's](https://developer.github.com/v3/) User, Repository and Search APIs
+* [GitHub](https://developer.github.com/v3/)'s User, Repository and Search APIs
 * CSS/SCSS
 * TypeScript
 * JavaScript

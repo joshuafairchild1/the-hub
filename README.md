@@ -53,6 +53,10 @@ Description coming soon &#128175;
   * Sass
   * Adobe Illustrator
 
+## Style Guide
+![](./src/assets/images/branding_guide.png)
+
+
 ### 5. Polish
   * Refactor code
   * Delete unused code

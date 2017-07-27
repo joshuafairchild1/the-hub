@@ -13,6 +13,7 @@
   background-color: $pink;
   border-radius: $radius;
   box-shadow: $box-shadow;
+  margin-bottom: 100px;
   .chat-body {
     @include grid-column(10);
     background-color: lighten($blue, 65%);
@@ -125,4 +126,9 @@
   .sidebar-button {
     margin: $nudge auto;
   }
+}
+
+.empty-chat {
+  text-align: center;
+  margin-top: $nudge;
 }

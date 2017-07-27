@@ -60,14 +60,14 @@
             <img src="{{repo.authorAviUrl}}" class="avatar-sm">
             <p class="starred-info"><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
               <em><span class="starred-info-secondary"><span *ngIf='repo.language'>{{repo.language}} |</span> {{repo.stars}} stars
-                <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">| Website</a></span></span></em>
+                <span *ngIf='repo.homepage'>| <a href="{{repo.homepage}}">Website</a></span></span></em>
                 </p>
                 <div *ngIf='repo.description' class="starred-bottom">
                   <hr>
-                  {{repo.description}}</div>
+                  {{repo.description}}
+                </div>
           </div>
-            <!-- <p *ngIf='repo.description' class="starred-bottom">{{repo.description}}</p> -->
-          </li>
+        </li>
       </ul>
     </div><!--SEARCHED USER CLOSES-->
   </div>

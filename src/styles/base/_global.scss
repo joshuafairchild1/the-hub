@@ -2,7 +2,6 @@
 //// GLOBAL STYLES ////
 //////////////////////
 
-
 ::selection {
   background-color: hotpink;
   color: white;
@@ -16,9 +15,6 @@ body {
 
 a {
   text-decoration: none;
-}
-
-a {
   color: purple;
 }
 
@@ -42,7 +38,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 470px;
   height: 100px;
   margin: 20px auto 0 auto;
-  // border: 5px solid red;
   &:before {
     font-size: 20px;
     content: "\25CF";
@@ -91,28 +86,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-*::-webkit-scrollbar {
-  background-color: transparent;
-}
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(110, 84, 148, .5);
-  border-radius: 10px;
-
-}
-
-
 .chat-h1 {
   margin: 50px 0;
   text-align: center;
   color: $white;
-}
-@keyframes twinkle {
-  to {
-    transform: scale(1);
-  }
-  from {
-    transform: scale(.5);
-  }
 }
 
 hr {
@@ -120,18 +97,13 @@ hr {
   border-bottom: none;
 }
 
-//////////////////////
-/////// NAVBAR //////
-/////////////////////
+// STYLES FOR SCROLLBAR //
 
-nav li {
-  padding-right: 20px;
+*::-webkit-scrollbar {
+  background-color: transparent;
 }
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(110, 84, 148, .5);
+  border-radius: 10px;
 
-.left-nav li {
-font-size: 25px;
-}
-
-.right-nav li {
-font-size: 20px;
 }

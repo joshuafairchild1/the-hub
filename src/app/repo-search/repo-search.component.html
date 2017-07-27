@@ -6,6 +6,7 @@
 
 <!-- <div class="repo-wrapper"> -->
 <div class="search-wrapper">
+  <p id='repo-search-text'><strong>Search for repositories using a GitHub username and repsitory name, or repository name alone</strong></p>
   <div class="repo-search">
     <input #username placeholder="Username" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
     <input #repo placeholder="Repo name" (keyup.enter)='lookupRepo(username.value, repo.value); username.value="";repo.value="";'>
@@ -25,7 +26,7 @@
       <div class="searched-secondary">
         <p><strong> <i class="fa fa-html5" aria-hidden="true"></i>
  Website:</strong> {{searchedRepo.homepage}}</p>
-        <p><i class="fa fa-code" aria-hidden="true"></i> <strong>Written with:</strong> {{searchedRepo.language}}</p>
+        <p *ngIf='searchedRepo.language'><i class="fa fa-code" aria-hidden="true"></i> <strong>Written with:</strong> {{searchedRepo.language}}</p>
       </div>
       <div class="searched-secondary">
         <p><strong><i class="fa fa-code-fork" aria-hidden="true"></i> Number of forks:</strong> {{searchedRepo.forks}}</p>
@@ -60,27 +61,27 @@
     </div>
   </div>
   <div *ngIf='searchedRepoCollection'>
-    <div *ngFor='let repo of searchedRepoCollection'>
+    <div *ngFor='let repo of searchedRepoCollection' class="searched-repo">
       <img src="{{repo.authorAviUrl}}" class="avatar">
       <p><a href="{{repo.authorUrl}}">{{repo.authorName}}</a>/<strong><a href="{{repo.repoUrl}}">{{repo.repoName}}</a></strong>
-        | {{repo.language}} | {{repo.stars}} stars |
-      <span *ngIf='repo.homepage'><a href="{{repo.homepage}}">Website</a></span></p>
+        <span *ngIf='repo.language'>| {{repo.language}}</span>
+        | {{repo.stars}} stars
+        <span *ngIf='repo.homepage'>| <a href="{{repo.homepage}}">Website</a></span></p>
       <p *ngIf='repo.description'>{{repo.description}}</p>
       <button (click)='lookupRepo(repo.authorName, repo.repoName)'>View Details</button>
     </div>
   </div>
   <div class="repo-container">
     <div *ngIf='repoSample'>
-      <h2>Popular Random Repositories</h2>
+      <h2>Random Popular Repositories</h2>
       <div *ngFor='let sampleRepo of repoSample' class="repo-info">
         <img src="{{sampleRepo.authorAviUrl}}" class="avatar">
         <button (click)='lookupRepo(sampleRepo.authorName, sampleRepo.repoName)'>View Details</button>
           <p id="project-detail"><a href="{{sampleRepo.authorUrl}}">{{sampleRepo.authorName}}</a>/<strong><a href="{{sampleRepo.repoUrl}}">{{sampleRepo.repoName}}</a></strong>
-            | {{sampleRepo.language}} | {{sampleRepo.stars}} stars |
-            <span *ngIf='sampleRepo.homepage'><a href="{{sampleRepo.homepage}}">Website</a></span></p>
+          <span *ngIf='sampleRepo.language'>| {{sampleRepo.language}}</span> | {{sampleRepo.stars}} stars |
+          <span *ngIf='sampleRepo.homepage'><a href="{{sampleRepo.homepage}}">Website</a></span></p>
         <p *ngIf='sampleRepo.description' id="popular-repo-description">{{sampleRepo.description}}</p>
         </div>
       </div>
   </div>
 </div>
-<!-- </div> -->

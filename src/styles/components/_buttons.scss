@@ -1,24 +1,4 @@
-// button {
-//   padding: 10px 15px;
-//   border-radius: $radius;
-//   border: 0;
-//   text-transform: uppercase;
-//   letter-spacing: $letter-spacing;
-//   font-size: 1.2em;
-//   cursor: pointer;
-//   outline: none;
-//   margin-bottom: $nudge;
-//   background-color: $purple;
-//   color: $white;
-//   transition: all 0.3s ease-in-out;
-//   &:hover {
-//     background-color: $pink;
-//   }
-// }
-
 button {
-  // background: $green;
-  // background-image: linear-gradient(to top left, darken($green, 20%), $green);
   background-image: linear-gradient(to top left, darken($green, 15%), $green);
   color: white;
   border: none;
@@ -36,8 +16,6 @@ button {
   outline: none;
   &:before,
   &:after {
-    // background: $pink;
-    // background-image: linear-gradient(to top left, $green, darken($green, 20%));
     background-image: linear-gradient(to top left, darken($pink, 15%), $pink);
     transition: 0.3s ease;
     content: '';

@@ -99,32 +99,6 @@
   animation: bounce 800ms infinite alternate ease-in-out;
 }
 
-@keyframes bounce {
-  to {
-    transform: translateY(15px);
-  }
-  from {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -100vw;
-  }
-}
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
-}
-
 // PLANET STUFF //
 
 .planet-container {
@@ -223,14 +197,14 @@
   border-radius: 50%;
   box-shadow: 1px 1px 30px 4px white;
   background-color: white;
-  animation: twinkle 1.3s alternate infinite ease-in-out;
+  animation: twinkle 1.1s alternate infinite ease-in-out;
   position: absolute;
   top: 30vh;
   left: 15vw;
   &:nth-of-type(3) {
     top: 35vh;
-    left: 60vw;
-    animation-delay: 0.3s;
+    left: 70vw;
+    animation-delay: 0.7s;
     width: 10px;
     height: 10px;
   }
@@ -275,5 +249,14 @@
     animation-delay: 0.9s;
     width: 7px;
     height: 7px;
+  }
+}
+
+
+// MEDIA QUERIES //
+
+h2 {
+  @include xs-breakpoint {
+   font-size: 26px !important;
   }
 }

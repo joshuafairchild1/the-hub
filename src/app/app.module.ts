@@ -22,7 +22,7 @@ import { MaxPagesService } from './github-service/max-pages.service';
 import { RouterModule } from '@angular/router';
 import { InboxComponent } from './inbox/inbox.component';
 import * as firebase from 'firebase';
-import { InboxService } from "./inbox.service";
+import { InboxService } from './inbox.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,

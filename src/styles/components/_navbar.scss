@@ -25,13 +25,23 @@ nav {
         opacity: 0.7;
       }
     }
+    @include xs-breakpoint {
+      display: none;
+    }
+   @include  small-breakpoint {
+     display: none;
+   }
   }
+
   .right-nav {
     ul {
       li {
         span {
           color: $green;
           font-style: italic;
+          @include xs-breakpoint {
+            font-size: 14px !important;
+          }
         }
         a {
           font-size: inherit;
@@ -44,6 +54,10 @@ nav {
             border-bottom: 3px solid $green;
             color: $pink;
           }
+         @include xs-breakpoint {
+           font-size: 12px !important;
+           border-bottom: none;
+         }
         }
       }
     }
@@ -51,6 +65,7 @@ nav {
 }
 
 // Landing page when not logged in
+
 .left a, .right a {
   color: $white;
   padding-bottom: $nudge;
@@ -63,7 +78,6 @@ nav {
 }
 
 .center {
-  // color: red;
   font-family: $logo;
 }
 
@@ -71,4 +85,18 @@ nav {
 
 #right-nav-not-logged-in {
   font-size: 30px;
+}
+
+// MAIN NAVBAR //
+
+nav li {
+  padding-right: 20px;
+}
+
+.left-nav li {
+font-size: 25px;
+}
+
+.right-nav li {
+font-size: 20px;
 }

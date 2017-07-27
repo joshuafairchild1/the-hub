@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { oAuthToken } from './../api-keys';
+// import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Chatroom } from '../chat-room.model';
-import { ChatRoomService } from '../chat-room.service';
+import { Chatroom } from './../models/chat-room.model';
+import { ChatRoomService } from './../services/chat-room.service';
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
-import { Message } from '../message.model';
+import { Message } from './../models/message.model';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserService } from '../user.service';
+import { UserService } from './../services/user.service';
 import { AuthenticationService } from './../authentication/authentication.service';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
@@ -45,7 +45,6 @@ export class ChatRoomDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.sub =
     this.route.params.subscribe((urlParameters) => {
       this.chatroomId = urlParameters['id'];
 

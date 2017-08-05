@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-// import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
-import { UserData } from './../user-data.model';
-import { Repo } from './../repo.model';
+import { UserData } from './../models/user-data.model';
+import { Repo } from './../models/repo.model';
 import { MaxPagesService } from './max-pages.service';
 import { getUniqueSelection } from './../../../node_modules/get-unique-selection';
 
@@ -21,8 +20,6 @@ export class UserLookupService {
   ) { }
 
   getUserDetails(username: string): Observable<Response> {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, `token ${oAuthToken}`);
     if (username) {
       const url = `${this.userLookupEndpoint}${username}`;
       return this.http.get(url);

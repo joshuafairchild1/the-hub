@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-// import { oAuthToken } from './../api-keys';
 import { Observable } from 'rxjs/Observable';
-import { RepoData } from './../repo-data.model';
-import { Repo } from './../repo.model';
-import { Contributor } from './../contributor.model';
+import { RepoData } from './../models/repo-data.model';
+import { Repo } from './../models/repo.model';
+import { Contributor } from './../models/contributor.model';
 import { MaxPagesService } from './max-pages.service';
 
 import 'rxjs/add/operator/catch';
@@ -22,8 +21,6 @@ export class RepoLookupService {
   ) { }
 
   getRepoDetails(username: string, repoName: string): Observable<any> {
-    // const headers = new Headers();
-    // headers.append(`Authorization`, `token ${oAuthToken}`);
     if (username && repoName) {
       const url = `${this.repoDetailEndpoint}${username}/${repoName}`;
       return this.http.get(url);

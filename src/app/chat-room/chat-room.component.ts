@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatRoomService } from '../chat-room.service';
-import { Chatroom } from '../chat-room.model';
-import { Message } from '../message.model';
+import { ChatRoomService } from './../services/chat-room.service';
+import { Chatroom } from './../models/chat-room.model';
+import { Message } from './../models/message.model';
 import { Router } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 

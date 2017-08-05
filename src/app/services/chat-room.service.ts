@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Chatroom } from './chat-room.model';
-import { Message } from './message.model';
+import { Chatroom } from './../models/chat-room.model';
+import { Message } from './../models/message.model';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Injectable()

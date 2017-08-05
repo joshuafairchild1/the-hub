@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RepoLookupService } from './../github-service/repo-lookup.service';
-import { RepoData } from './../repo-data.model';
-import { Repo } from './../repo.model';
-import { Contributor } from './../contributor.model';
+import { RepoLookupService } from './../github-services/repo-lookup.service';
+import { RepoData } from './../models/repo-data.model';
+import { Repo } from './../models/repo.model';
+import { Contributor } from './../models/contributor.model';
 import { getUniqueSelection } from './../../../node_modules/get-unique-selection';
 
 

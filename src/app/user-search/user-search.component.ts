@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { UserLookupService } from './../github-service/user-lookup.service';
-import { UserData } from './../user-data.model';
-import { Repo } from './../repo.model';
+import { UserLookupService } from './../github-services/user-lookup.service';
+import { UserData } from './../models/user-data.model';
+import { Repo } from './../models/repo.model';
 import { Observable } from 'rxjs/Observable';
 import { Response } from '@angular/http';
 

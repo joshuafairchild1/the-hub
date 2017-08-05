@@ -1,27 +1,28 @@
+import * as firebase from 'firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
-import { masterFirebaseConfig } from './api-keys';
+import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { ChatRoomDetailComponent } from './chat-room-detail/chat-room-detail.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { RepoSearchComponent } from './repo-search/repo-search.component';
 import { AboutComponent } from './about/about.component';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { AuthGuard } from './route-guards/auth-guard.service';
 import { AuthenticationService } from './authentication/authentication.service';
-import { MaxPagesService } from './github-service/max-pages.service';
-import { RouterModule } from '@angular/router';
-import * as firebase from 'firebase';
-// import { InboxService } from './inbox.service';
+import { MaxPagesService } from './github-services/max-pages.service';
+
+import { masterFirebaseConfig } from './api-keys';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -44,7 +45,6 @@ firebase.initializeApp(firebaseConfig);
     UserSearchComponent,
     RepoSearchComponent,
     AboutComponent,
-    // InboxComponent
   ],
   imports: [
     BrowserModule,
